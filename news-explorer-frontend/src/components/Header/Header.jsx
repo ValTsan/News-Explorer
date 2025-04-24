@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 
-import "../Header/Header.css";
+import "./Header.css";
 
 const Header = ({
   handleLoginClick,
   isLoggedIn,
-  handleLogoutClick,
+  handleLogout,
   isSignInModalOpen,
 }) => {
   const location = useLocation();
@@ -21,26 +21,27 @@ const Header = ({
         isSavedNews ? "header--saved-news" : ""
       }`}
     >
-      {/* LOGO */}
       <div
         className={`header__logo ${isSavedNews ? "header__logo--black" : ""}`}
       >
         NewsExplorer
       </div>
-      {/* HAMBURGER MENU ICON */}
+
       <button
         className={`header__menu-icon ${
           isSavedNews ? "header__menu-icon--black" : ""
-        } ${
-          menuOpen || window.innerWidth > 420 || isSignInModalOpen
-            ? "hidden"
-            : ""
-        }`}
+        } 
+          ${
+            menuOpen || window.innerWidth > 420 || isSignInModalOpen
+              ? "hidden"
+              : ""
+          }`}
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
       </button>
-      {/* DESKTOP NAVIGATION */}
+
+      {/* Desktop Navigation */}
       <nav className="header__desktop-nav">
         <Link
           to="/"
@@ -55,8 +56,8 @@ const Header = ({
             to="/saved-news"
             className={
               isSavedNews
-                ? "header__button-saved-news_active"
-                : "header__button-saved-news"
+                ? "header__button-saved_active"
+                : "header__button-saved"
             }
           >
             Saved Articles
@@ -64,7 +65,7 @@ const Header = ({
         )}
         {isLoggedIn ? (
           <p
-            onClick={handleLogoutClick}
+            onClick={handleLogout}
             className={
               isSavedNews
                 ? "header__button-logout_active"
@@ -86,7 +87,8 @@ const Header = ({
           </p>
         )}
       </nav>
-      {/* MOBILE NAVIGATION */}
+
+      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <nav className="mobile__dropdown">
           <Link
@@ -109,7 +111,7 @@ const Header = ({
             <button
               className="mobile__dropdown-signin_button"
               onClick={() => {
-                handleLogoutClick();
+                handleLogout();
                 setMenuOpen(false);
               }}
             >
