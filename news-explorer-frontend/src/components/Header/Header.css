@@ -33,7 +33,6 @@
   display: flex;
 }
 
-/* Default - Hide Menu Icon */
 .header__menu-icon {
   display: none;
 }
@@ -404,27 +403,25 @@
   }
 
   .mobile__dropdown_header.open {
-    display: flex; /* Show menu when open */
+    display: flex;
   }
 
   .header__menu-icon {
-    display: block; /* Show only on small screens */
-    right: 16px; /* Align to the right */
-    top: 20px; /* Adjust top positioning */
+    display: block;
+    right: 16px;
+    top: 20px;
     background: none;
     border: none;
     cursor: pointer;
     color: #fff;
-    z-index: 10; /* Ensure it appears above other elements */
+    z-index: 10;
   }
 
-  /* Hide desktop navigation on small screens */
   .header__desktop-nav {
     display: none;
   }
 }
 
-/* Ensure the header stays visible and turns black when the menu is open */
 .header.menu-open {
   background-color: #1a1b22;
   position: fixed;
@@ -434,16 +431,14 @@
   z-index: 1000;
 }
 
-/* Ensure logo and menu icon turn white */
 .header.menu-open .header__logo,
 .header.menu-open .header__menu-icon {
   color: white;
 }
 
-/* Mobile dropdown menu styles */
 .mobile__dropdown {
   position: absolute;
-  top: 100%; /* Makes sure it appears below the header */
+  top: 100%;
   left: 0;
   width: 100%;
   background-color: #1a1b22;
@@ -454,7 +449,6 @@
   z-index: 999;
 }
 
-/* Mobile dropdown links */
 .mobile__dropdown-item {
   color: white;
   font-size: 18px;
@@ -469,7 +463,6 @@
   color: gray;
 }
 
-/* Mobile sign-in/logout button */
 .mobile__dropdown-signin_button {
   background: transparent;
   color: white;
