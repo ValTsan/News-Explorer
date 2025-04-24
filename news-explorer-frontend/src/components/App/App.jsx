@@ -11,6 +11,9 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import { fetchNews } from "../../utils/newsAPI";
 import { setToken, removeToken } from "../../utils/token";
 import { authorize, checkToken } from "../../utils/auth";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -212,7 +215,7 @@ function App() {
   return (
     <>
       <div className="page">
-        <currentUserContext.Provider value={userContext}>
+        <CurrentUserContext.Provider value={userContext}>
           <div
             className={
               isSavedNews ? "page__cotent-saved-news-active" : "page__content"
@@ -281,7 +284,7 @@ function App() {
               handleRegistration={handleRegistration}
             />
           </div>
-        </currentUserContext.Provider>
+        </CurrentUserContext.Provider>
       </div>
     </>
   );

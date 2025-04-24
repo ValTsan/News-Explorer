@@ -1,0 +1,103 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  padding: 0;
+  position: relative;
+  background-color: white;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.about__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__image {
+  max-width: auto;
+  max-height: auto;
+  width: 464px;
+  height: 464px;
+  margin: 80px 56px 80px 104px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-image: url("../../assets/ProfilePic.jpeg");
+  border-radius: 50%;
+}
+
+.about__text-container {
+  flex-wrap: wrap;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.about__title {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 0 24px;
+  font-weight: 400;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.about__description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #1a1b22;
+  font-weight: 400;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: row; /* Maintain row direction to keep image and text side-by-side */
+    align-items: center;
+    justify-content: center;
+    max-width: 768px;
+    width: 100%;
+  }
+
+  .about__image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .about__image {
+    max-width: 232px;
+    height: 232px;
+    margin: 0;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .about__text-container {
+    max-width: 420px;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  .about__description {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    flex-wrap: wrap;
+  }
+}
