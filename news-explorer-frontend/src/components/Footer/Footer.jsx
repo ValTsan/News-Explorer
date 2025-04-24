@@ -1,7 +1,6 @@
 import facebookLink from "../../assets/facebook.svg";
 import githubLink from "../../assets/github.svg";
-
-import "../Footer/Footer.css";
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -13,26 +12,32 @@ function Footer() {
             Home
           </a>
           <a
-            href="https://tripleyen.com"
+            href="https://tripleten.com/"
             target="_blank"
-            rel="noopener noreferer"
+            rel="noopener noreferrer"
             className="footer__link"
-          ></a>
+          >
+            Tripleten
+          </a>
         </nav>
-        <div className="footer__social-icons">
+        <div className="footer__media">
           <a href="https://github.com" target="_blank">
             <img
               className="footer__github-icon"
-              alt="Github"
+              alt="GitHub"
               src={githubLink}
-            ></img>
+            />
           </a>
-          <a href="https://facebook.com" target="_blank">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
-              className="footer__github-icon"
-              alt="Faccebook"
+              className="footer__fb-icon"
+              alt="Facebook"
               src={facebookLink}
-            ></img>
+            />
           </a>
         </div>
       </div>
