@@ -198,6 +198,7 @@ function App() {
     try {
       const news = await fetchNews(searchQuery);
 
+      // Log the fetched articles for debugging
       console.log("Fetched articles for query:", news);
 
       setArticles(news);

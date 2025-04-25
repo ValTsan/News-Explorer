@@ -4,6 +4,7 @@ const newsApiBaseUrl =
     ? "https://nomoreparties.co/news/v2/everything"
     : "https://newsapi.org/v2/everything";
 
+// Function to fetch news articles from the News API
 export const fetchNews = async (query) => {
   const endpoint = `${newsApiBaseUrl}?q=${encodeURIComponent(
     query
@@ -21,6 +22,7 @@ export const fetchNews = async (query) => {
 
     console.log("Fetched articles from API:", data.articles);
 
+    // Map through the articles and format them
     const articles = data.articles.map((article) => ({
       sourceName: article.source.name,
       title: article.title,
@@ -36,12 +38,15 @@ export const fetchNews = async (query) => {
   }
 };
 
+// Formats the date for the API request (7 days ago)
 export const getFormattedDate = (daysAgo) => {
   const date = new Date();
   date.setDate(date.getDate() - daysAgo);
   return date.toISOString().split("T")[0];
+  // Format as YYYY-MM-DD
 };
 
+// Formats the date for display
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = { year: "numeric", month: "long", day: "numeric" };

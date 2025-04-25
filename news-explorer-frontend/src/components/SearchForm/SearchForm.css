@@ -1,0 +1,121 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 80px;
+  padding: 0;
+}
+
+.search-input {
+  padding: 15px;
+  font-size: 16px;
+  width: 50%;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  backdrop-filter: blur(8px);
+  background-color: #fff;
+}
+
+.search-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #2f71e5;
+  color: white;
+  border: none;
+  border-radius: 25px 25px 25px 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  max-width: 168px;
+  width: 100%;
+  left: 70%;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+    margin: 48px auto 48px;
+    padding: 0;
+  }
+
+  .search-input {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    padding: 15px;
+    font-size: 16px;
+    width: 78%;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+  }
+
+  .search-button {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #2f71e5;
+    color: white;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    max-width: 168px;
+    width: 100%;
+    left: 60%;
+    margin-right: 10px;
+  }
+
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .search-input {
+    padding: 15px;
+    font-size: 16px;
+    max-width: 250px;
+    width: 100%;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    outline: none;
+  }
+
+  .search-button {
+    padding: 15px 50px;
+    font-size: 16px;
+    background-color: #2f71e5;
+    color: white;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    max-width: 275px;
+    width: 100%;
+    position: static;
+    /* display: none; */
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+}

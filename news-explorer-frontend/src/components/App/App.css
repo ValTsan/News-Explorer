@@ -1,5 +1,5 @@
 .page {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   padding: 0;
 }
 
@@ -20,4 +20,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  .page__content {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .page__content {
+    background-size: cover;
+  }
 }
