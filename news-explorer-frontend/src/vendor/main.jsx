@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import "../vendor/index.css";
-import "../vendor/fonts/fonts.css";
 
 import App from "../components/App/App";
 
