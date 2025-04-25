@@ -1,4 +1,4 @@
-const API_Key = "e472c102afbe4e59a1d92fc5bb218322";
+const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 const newsApiBaseUrl =
   process.env.NODE_ENV === "production"
     ? "https://nomoreparties.co/news/v2/everything"
@@ -7,7 +7,7 @@ const newsApiBaseUrl =
 export const fetchNews = async (query) => {
   const endpoint = `${newsApiBaseUrl}?q=${encodeURIComponent(
     query
-  )}&apiKey=${API_Key}&pageSize=100&from=${getFormattedDate(
+  )}&apiKey=${apiKey}&pageSize=100&from=${getFormattedDate(
     7
   )}&to=${getFormattedDate(0)}`;
 
