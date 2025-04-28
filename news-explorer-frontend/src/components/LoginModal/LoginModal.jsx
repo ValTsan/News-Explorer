@@ -40,7 +40,7 @@ const LoginModal = ({
 
   return (
     <ModalWithForm
-      title="Log In"
+      title="Sign In"
       name="register-user"
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -49,7 +49,7 @@ const LoginModal = ({
     >
       <fieldset className="modal__inputs">
         <label className="modal__label">
-          Email*
+          Email
           <input
             className="modal__input"
             type="email"
@@ -62,7 +62,7 @@ const LoginModal = ({
           />
         </label>
         <label className="modal__label">
-          Password*
+          Password
           <input
             className="modal__input"
             type="password"
@@ -83,12 +83,13 @@ const LoginModal = ({
         >
           Sign in
         </button>
+
         <button
           type="button"
           className="modal__sign-up_button"
           onClick={handleRegisterModal}
         >
-          Sign Up
+          or Sign Up
         </button>
       </div>
     </ModalWithForm>
