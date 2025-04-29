@@ -14,6 +14,7 @@ import { authorize, checkToken } from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { getItems, saveArticle } from "../../utils/ThirdPartyAPI";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({

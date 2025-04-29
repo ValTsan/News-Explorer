@@ -54,7 +54,7 @@
 
 @media (max-width: 768px) {
   .about {
-    flex-direction: row; /* Maintain row direction to keep image and text side-by-side */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     max-width: 768px;

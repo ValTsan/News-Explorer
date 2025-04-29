@@ -1,0 +1,41 @@
+.saved-cards {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 16px;
+  list-style-type: none;
+  margin-top: 64px;
+  padding: 0px 20px;
+  background-color: #f5f6f7;
+}
+
+@media (max-width: 768px) {
+  .saved-cards {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 5px;
+    margin-top: 64px;
+    padding: 0px 20px;
+    background-color: #f5f6f7;
+  }
+}
+
+@media (max-width: 320px) {
+  .saved-cards {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 5px;
+    margin-top: 64px;
+    padding: 0px 20px;
+    background-color: #f5f6f7;
+  }
+}

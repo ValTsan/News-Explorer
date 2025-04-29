@@ -1,25 +1,30 @@
-import "../SavedCardList/SavedCardList.css";
-import { useContext } from "react";
-import { UserArticleContext } from "../../contexts/UserArticleContext";
+import React from "react";
+import "./SavedCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function SavedCardList({ handleDeleteArticle }) {
-  const { userArticles } = useContext(UserArticleContext);
+const SavedCardList = ({
+  savedArticles,
+  onCardDelete,
+  article,
+  handleCardLike,
+}) => {
+  const handleDeleteClick = () => {
+    onCardDelete(article); // Call the delete function passed from props
+  };
 
   return (
-    <>
-      <ul className="saved-cards">
-        {userArticles?.map((article) => {
-          return (
-            <NewsCard
-              handleDeleteArticle={handleDeleteArticle}
-              article={article}
-              key={article.image}
-            />
-          );
-        })}
-      </ul>
-    </>
+    <div className="saved-cards">
+      {savedArticles?.map((article) => (
+        <NewsCard
+          key={article._id}
+          article={article}
+          onCardLike={handleCardLike}
+          onCardDelete={onCardDelete}
+          savedArticles={savedArticles}
+        />
+      ))}
+    </div>
   );
-}
+};
+
 export default SavedCardList;
