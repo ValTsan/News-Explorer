@@ -117,14 +117,14 @@
   margin: auto;
 }
 
-@media (max-width: 1430px) {
+@media (max-width: 1400px) {
   .results {
     margin: 40px auto;
     padding: 20px;
     width: 768px;
     text-align: center;
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
   }
