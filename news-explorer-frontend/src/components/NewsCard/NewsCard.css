@@ -1,0 +1,19 @@
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  max-height: 576px;
+  text-align: left;
+  position: relative;
+}
+.news-card__image {
+  max-width: auto;
+  width: 100%;
+  height: 280px;
+  object-fit: fill;
+}

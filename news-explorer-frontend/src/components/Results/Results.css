@@ -117,7 +117,7 @@
   margin: auto;
 }
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1430px) {
   .results {
     margin: 40px auto;
     padding: 20px;
@@ -185,7 +185,7 @@
     height: 64px;
     margin-top: 60px;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .results {
