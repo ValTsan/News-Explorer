@@ -17,3 +17,39 @@
   height: 280px;
   object-fit: fill;
 }
+
+.news-card__content {
+  padding: 15px;
+}
+
+.news-card__title {
+  margin: 12px 24px 12px;
+  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: left;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-card__description {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0 24px;
+  max-height: 110px;
+  text-overflow: ellipsis;
+}
+
+.news-card__date {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin: 0 24px;
+}

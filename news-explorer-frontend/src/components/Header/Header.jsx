@@ -5,12 +5,12 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 import "./Header.css";
 
-const Header = ({
+function Header({
   handleLoginClick,
   isLoggedIn,
   handleLogout,
   isSignInModalOpen,
-}) => {
+}) {
   const location = useLocation();
   const isSavedNews = location.pathname === "/saved-news";
   const [menuOpen, setMenuOpen] = useState(false);
@@ -132,6 +132,6 @@ const Header = ({
       )}
     </header>
   );
-};
+}
 
 export default Header;
