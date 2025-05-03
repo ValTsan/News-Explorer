@@ -78,7 +78,7 @@ const Results = ({
       </div>
 
       {visibleArticles < articles.length && (
-        <button className="show-more" onClick={showMoreArticles}>
+        <button className="results-show-more" onClick={showMoreArticles}>
           Show More
         </button>
       )}
