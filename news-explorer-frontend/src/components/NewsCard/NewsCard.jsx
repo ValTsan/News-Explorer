@@ -1,12 +1,16 @@
+import { useState, useContext } from "react";
 import "../NewsCard/NewsCard.css";
+import { useLocation } from "react-router-dom";
+import { UserArticleContext } from "../../contexts/UserArticleContext";
+import { Link } from "react-router-dom";
 
-const NewsCard = ({
+function NewsCard({
   article,
   onCardLike,
   onCardDelete,
   isLoggedIn,
   savedArticles = [],
-}) => {
+}) {
   // Check if the article is saved
   const isSaved = savedArticles.some(
     (savedArticle) => savedArticle.url === article?.url
@@ -57,6 +61,6 @@ const NewsCard = ({
       </div>
     </div>
   );
-};
+}
 
 export default NewsCard;
