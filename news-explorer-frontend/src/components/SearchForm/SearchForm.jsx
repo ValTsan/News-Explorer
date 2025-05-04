@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-const SearchForm = ({ handleSearch }) => {
+function SearchForm({ handleSearch }) {
   // 'handleSearch' is passed from App.jsx
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
@@ -41,6 +41,6 @@ const SearchForm = ({ handleSearch }) => {
       </button>
     </form>
   );
-};
+}
 
 export default SearchForm;
