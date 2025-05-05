@@ -253,7 +253,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .header {
     max-width: 480px;
   }
@@ -386,12 +386,12 @@
   }
 
   .menu-icon {
-    display: block; /* Show menu icon */
+    display: block;
     color: white;
   }
 
   .mobile__dropdown_header {
-    display: none; /* Hide menu by default */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;

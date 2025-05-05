@@ -15,8 +15,6 @@
 }
 
 .about__image {
-  max-width: auto;
-  max-height: auto;
   width: 464px;
   height: 464px;
   margin: 80px 56px 80px 104px;
@@ -54,7 +52,7 @@
   color: #1a1b22;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .about {
     flex-direction: row;
     justify-content: center;
@@ -67,8 +65,8 @@
   }
 
   .about__image {
-    max-width: 232px;
-    height: 232px;
+    max-width: 272px;
+    height: 272px;
     margin: 0;
   }
 
@@ -79,11 +77,16 @@
 
   .about__title {
     font-size: 30px;
+    padding-top: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .about {
     flex-wrap: wrap;
+  }
+
+  .about__title {
+    padding-top: 0px;
   }
 }

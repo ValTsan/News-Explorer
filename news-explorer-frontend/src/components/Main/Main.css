@@ -61,9 +61,9 @@
   }
 
   .main__title {
-    max-width: 243px;
+    max-width: 285px;
     width: 100%;
-    margin: 30px 0 16px;
+    height: 80px;
     font-size: 36px;
     line-height: 1.2;
   }
