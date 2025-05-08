@@ -143,17 +143,20 @@ function App() {
     article.articleId = articleId;
     console.log(article.articleId);
 
-    // conlose.log("Article ID:", articleId);
     // Article ID logged for confirmation
+    conlose.log("Article ID:", articleId);
 
     //Split Search query into individuals keywords
     article.keywords = searchQuery.split("");
 
-    // console.log("Article with attached keywords:", article.keywords.slice(0,2));
     // Article with attached keywords logged for confirmation
+    console.log(
+      "Article with attached keywords:",
+      article.keywords.slice(0, 2)
+    );
 
     // Pass the articleId and article object to the API
-    savedArticle(article, token)
+    savedArticles(article, token)
       .then((likedArticle) => {
         setSavedArticles([...savedArticles, likedArticle]);
         console.log("Article saved successfully:", likedArticle);
@@ -229,8 +232,11 @@ function App() {
         <CurrentUserContext.Provider value={userContext}>
           <UserArticleContext.Provider value={userArticleContext}>
             <div
+              // className="page__content"
               className={
-                isSavedNews ? "page__cotent-saved-news-active" : "page__content"
+                isSavedNews
+                  ? "page__content-saved-news-active"
+                  : "page__content"
               }
             >
               <Header

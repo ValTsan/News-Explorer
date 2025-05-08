@@ -15,11 +15,20 @@
   width: 100%;
 }
 
-.page__content_saved-news-active {
+.page__content-saved-news-active {
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  /* display: flex;
+  flex-direction: column;
+  background-image: url("../../assets/headear-background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%; */
 }
 
 @media (max-width: 768px) {

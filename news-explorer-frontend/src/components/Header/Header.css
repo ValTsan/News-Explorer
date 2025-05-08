@@ -64,8 +64,8 @@
 }
 
 .header__button-home_active {
-  font-weight: 500;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
   font-size: 18px;
   background-color: transparent;
   padding: 0;
@@ -144,38 +144,46 @@
 }
 
 .header__button-logout {
-  max-width: 120px;
+  max-width: 112px;
   width: 100%;
-  height: 60px;
-  background-color: transparent;
+  height: 48px;
   border: 1px solid white;
-  border-radius: 15%;
-  margin-right: 40px;
+  border-radius: 30px;
   background-image: url("../../assets/logout-white.svg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
+  background-color: transparent;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
-  margin: 0 10px 0;
+  margin: 19px 13px;
+  padding: 0 40px;
   color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .header__button-logout_active {
-  max-width: 120px;
+  max-width: 112px;
   width: 100%;
-  height: 60px;
+  height: 48px;
   border: 1px solid black;
   border-radius: 30px;
-  margin-right: 40px;
   background-image: url("../../assets/logout-black.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  margin: 20px 13px 13px 20px;
+  background-position: right;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
   margin: 20px 13px 13px 20px;
   padding: 0px 40px;
   color: black;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .header__button-logout:hover {

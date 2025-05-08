@@ -11,9 +11,9 @@ function NewsCard({
   onCardDelete,
   savedArticles = [],
 
-  // handleSaveArticle,
-  // handleDeleteArticle,
-  // setActiveModal,
+  handleSaveArticle,
+  handleDeleteArticle,
+  setActiveModal,
 }) {
   // Check if the article is saved
   // const isSaved = savedArticles.some(
@@ -21,7 +21,7 @@ function NewsCard({
   // );
 
   // Handle bookmark button click
-  //  const handleBookmarkClick = () => {
+  // const handleBookmarkClick = () => {
   //   if (isSaved) {
   //     onCardDelete(article);
   //   } else {

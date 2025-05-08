@@ -46,7 +46,7 @@
 
 .modal__title {
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   padding: 0 0 22px;
   font-size: 24px;
   margin-left: 16px;

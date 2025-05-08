@@ -2,7 +2,7 @@ import React from "react";
 import SavedCardList from "../SavedCardList/SavedCardList";
 import "./SavedNewsHeader.css";
 
-const SavedNewsHeader = ({ savedArticles }) => {
+function SavedNewsHeader({ savedArticles }) {
   return (
     <div className="saved-news-header">
       <div className="saved-news-header__container">
@@ -18,6 +18,6 @@ const SavedNewsHeader = ({ savedArticles }) => {
       <SavedCardList savedArticles={savedArticles} />
     </div>
   );
-};
+}
 
 export default SavedNewsHeader;

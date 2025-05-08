@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import notFoundImage from "../../assets/not-found.svg";
 
-const Results = ({
+function Results({
   isLoading,
   error,
   articles,
@@ -14,7 +14,7 @@ const Results = ({
   onCardDelete,
   savedArticles,
   isLoggedIn,
-}) => {
+}) {
   if (isLoading) {
     return (
       <div className="results result_type_preloader">
@@ -63,27 +63,35 @@ const Results = ({
   return (
     <div className="results-list">
       <div className="results-list__page-title">Search Results</div>
-      <div className="results-list__cards">
-        {articles.slice(0, visibleArticles).map((article, index) => (
-          <NewsCard
-            key={index}
-            article={article}
-            savedArticles={savedArticles}
-            ß
-            onCardLike={onCardLike}
-            onCardDelete={onCardDelete}
-            isLoggedIn={isLoggedIn}
-          />
-        ))}
-      </div>
-
-      {visibleArticles < articles.length && (
-        <button className="show-more" onClick={showMoreArticles}>
-          Show More
-        </button>
+      {Array.isArray(articles) && (
+        <div className="results-list__cards">
+          {articles.slice(0, visibleArticles).map((article, index) => {
+            console.log("Rendering article:", article.title || article);
+            return (
+              <NewsCard
+                key={index}
+                article={article}
+                savedArticles={savedArticles}
+                onCardLike={onCardLike}
+                onCardDelete={onCardDelete}
+                isLoggedIn={isLoggedIn}
+              />
+            );
+          })}
+        </div>
       )}
+
+      {visibleArticles < articles.length &&
+        console.log(
+          "visibleArticles",
+          visibleArticles
+        )(
+          <button className="show-more" onClick={showMoreArticles}>
+            Show More
+          </button>
+        )}
     </div>
   );
-};
+}
 
 export default Results;
