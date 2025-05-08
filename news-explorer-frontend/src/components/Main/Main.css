@@ -63,15 +63,10 @@
   .main__title {
     max-width: 285px;
     width: 100%;
-    height: 80px;
-    font-size: 36px;
-    line-height: 1.2;
   }
 
   .main__subtitle {
     max-width: 285px;
     width: 100%;
-    font-size: 18px;
-    margin: 0;
   }
 }

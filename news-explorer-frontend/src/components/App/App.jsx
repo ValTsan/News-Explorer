@@ -15,6 +15,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { getItems, saveArticle } from "../../utils/ThirdPartyAPI";
+import { UserArticleContext } from "../../contexts/UserArticleContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -23,13 +24,14 @@ function App() {
     username: "",
   });
 
+  // const [userArticles, setUserArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [articles, setArticles] = useState([]);
   const [visibleArticles, setVisibleArticles] = useState(3);
   const showMoreArticles = () => {
     setVisibleArticles((prev) => prev + 3);
@@ -44,6 +46,11 @@ function App() {
   const userContext = {
     currentUser,
     setCurrentUser,
+  };
+
+  const userArticleContext = {
+    articles,
+    setArticles,
   };
 
   const handleLoginClick = () => {
@@ -154,6 +161,8 @@ function App() {
       .catch(console.error("Error saving article:", error));
   };
 
+  const handleSavedArticles = () => {};
+
   const handleCardDelete = (article) => {
     const token = getToken();
     if (!token) return;
@@ -218,74 +227,76 @@ function App() {
     <>
       <div className="page">
         <CurrentUserContext.Provider value={userContext}>
-          <div
-            className={
-              isSavedNews ? "page__cotent-saved-news-active" : "page__content"
-            }
-          >
-            <Header
-              handleLoginClick={handleLoginClick}
-              handleLogin={handleLogin}
-              isLoggedIn={isLoggedIn}
-              handleLogout={handleLogout}
-            />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Main
-                      handleLoginClick={handleLoginClick}
-                      isLoggedIn={isLoggedIn}
-                      handleLogout={handleLogout}
-                      isLoading={isLoading}
-                      handleSearch={handlSearch}
-                      isSubmitted={isSubmitted}
-                      articles={articles}
-                      error={error}
-                      handleCardLike={handleCardLike}
-                      onCardDelete={handleCardDelete}
-                      savedArticles={savedArticles}
-                      searchQuery={searchQuery}
-                      visibleArticles={visibleArticles}
-                      showMoreArticles={showMoreArticles}
-                    />
-                  </>
-                }
+          <UserArticleContext.Provider value={userArticleContext}>
+            <div
+              className={
+                isSavedNews ? "page__cotent-saved-news-active" : "page__content"
+              }
+            >
+              <Header
+                handleLoginClick={handleLoginClick}
+                handleLogin={handleLogin}
+                isLoggedIn={isLoggedIn}
+                handleLogout={handleLogout}
               />
-              <Route
-                path="/saved-news"
-                element={
-                  <ProtectedRoute
-                    isLoggedIn={isLoggedIn}
-                    setActiveModal={setActiveModal}
-                  >
-                    <SavedNewsHeader
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <>
+                      <Main
+                        handleLoginClick={handleLoginClick}
+                        isLoggedIn={isLoggedIn}
+                        handleLogout={handleLogout}
+                        isLoading={isLoading}
+                        handleSearch={handlSearch}
+                        isSubmitted={isSubmitted}
+                        articles={setArticles}
+                        error={error}
+                        handleCardLike={handleCardLike}
+                        onCardDelete={handleCardDelete}
+                        savedArticles={savedArticles}
+                        searchQuery={searchQuery}
+                        visibleArticles={visibleArticles}
+                        showMoreArticles={showMoreArticles}
+                      />
+                    </>
+                  }
+                />
+                <Route
+                  path="/saved-news"
+                  element={
+                    <ProtectedRoute
                       isLoggedIn={isLoggedIn}
-                      handleLogout={handleLogout}
-                      savedArticles={savedArticles}
-                    />
-                  </ProtectedRoute>
-                }
+                      setActiveModal={setActiveModal}
+                    >
+                      <SavedNewsHeader
+                        isLoggedIn={isLoggedIn}
+                        handleLogout={handleLogout}
+                        savedArticles={savedArticles}
+                      />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+              <Footer />
+              <LoginModal
+                isOpen={activeModal === "login"}
+                onClose={closeActiveModal}
+                setActiveModal={setActiveModal}
+                handleLogin={handleLogin}
+                onLogin={handleLogin}
+                handleRegisterModal={handleRegisterModal}
               />
-            </Routes>
-            <Footer />
-            <LoginModal
-              isOpen={activeModal === "login"}
-              onClose={closeActiveModal}
-              setActiveModal={setActiveModal}
-              handleLogin={handleLogin}
-              onLogin={handleLogin}
-              handleRegisterModal={handleRegisterModal}
-            />
-            <RegisterModal
-              isOpen={activeModal === "register"}
-              onClose={closeActiveModal}
-              setActiveModal={setActiveModal}
-              handleLoginModal={handleLoginModal}
-              handleRegistration={handleRegistration}
-            />
-          </div>
+              <RegisterModal
+                isOpen={activeModal === "register"}
+                onClose={closeActiveModal}
+                setActiveModal={setActiveModal}
+                handleLoginModal={handleLoginModal}
+                handleRegistration={handleRegistration}
+              />
+            </div>
+          </UserArticleContext.Provider>
         </CurrentUserContext.Provider>
       </div>
     </>

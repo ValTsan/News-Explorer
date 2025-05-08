@@ -26,6 +26,7 @@ export function saveArticle(article) {
       title: article.title,
       publishedAt: formatDate(article.publishedAt),
       description: article.description,
+      link: article.url,
     });
   });
 }

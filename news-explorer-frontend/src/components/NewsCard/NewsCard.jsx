@@ -6,23 +6,61 @@ import { Link } from "react-router-dom";
 
 function NewsCard({
   article,
+  isLoggedIn,
   onCardLike,
   onCardDelete,
-  isLoggedIn,
   savedArticles = [],
+
+  // handleSaveArticle,
+  // handleDeleteArticle,
+  // setActiveModal,
 }) {
   // Check if the article is saved
-  const isSaved = savedArticles.some(
-    (savedArticle) => savedArticle.url === article?.url
-  );
+  // const isSaved = savedArticles.some(
+  //   (savedArticle) => savedArticle.url === article?.url
+  // );
 
   // Handle bookmark button click
-  const handleBookmarkClick = () => {
-    if (isSaved) {
-      onCardDelete(article);
-    } else {
-      onCardLike(article);
+  //  const handleBookmarkClick = () => {
+  //   if (isSaved) {
+  //     onCardDelete(article);
+  //   } else {
+  //     onCardLike(article);
+  //   }
+  // };
+
+  // const isSaved = userArticles.some((savedArticle) => {
+  //   return savedArticle.link === article.url;
+  // });
+
+  const location = useLocation();
+  const { userArticles } = useContext(UserArticleContext);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const source =
+    location.pathname === "/"
+      ? article.source.name.toUpperCase().split(".")[0]
+      : article.source.name.toUpperCase().split(".")[0];
+
+  const dateInWords = new Date(
+    location.pathname === "/" ? article.publishedAt : article.date
+  ).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const isSaved = userArticles.some((savedArticle) => {
+    return savedArticle.link === article.url;
+  });
+
+  const handleSaveClick = () => {
+    if (isLoggedIn) {
+      isSaved === true ? setIsClicked(false) : setIsClicked(true);
+      handleSaveArticle(article);
+      return;
     }
+    setActiveModal("login");
   };
 
   return (
