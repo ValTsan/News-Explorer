@@ -5,14 +5,14 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  width: 100%;
   max-width: 400px;
-  max-height: 576px;
+  width: 100%;
+  height: 576px;
   text-align: left;
   position: relative;
 }
 .news-card__image {
-  /* max-width: auto; */
+  max-width: 400px;
   width: 100%;
   height: 280px;
   object-fit: fill;
@@ -48,7 +48,7 @@
   color: #000;
 }
 
-.news-card__source {
+/* .news-card__source {
   max-width: auto;
   margin-top: auto;
   margin-left: 5%;
@@ -56,7 +56,7 @@
   color: #b6bcbf;
   font-weight: 700;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-}
+} */
 
 .news-card__date {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -69,12 +69,12 @@
 }
 
 .news-card__bookmark {
-  max-width: auto;
+  max-width: 40px;
+  width: 100%;
   height: 40px;
-  width: 40px;
   position: absolute;
-  left: 85%;
-  top: 5%;
+  top: 24px;
+  right: 24px;
   background-image: url("../../assets/save-icon.svg");
   border: none;
   border-radius: 10px;
@@ -84,23 +84,18 @@
 
 .news-card__bookmark:hover {
   cursor: pointer;
-  background-image: url("../../assets/save-icon-hover.svg");
+  background-image: url("../../assets/save-icon-marked.svg");
 }
 
 .news-card__bookmark.saved {
   background-image: url("../../assets/save-icon-marked.svg");
 }
 
-.news-card__bookmark.saved:hover {
-  background-image: url("../../assets/save-icon-hover.svg");
-}
-
-@media (max-width: 842px) {
+@media (max-width: 768px) {
   .news-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     max-width: 220px;
+    width: 100%;
+
     margin: 5px;
     text-align: left;
     position: relative;

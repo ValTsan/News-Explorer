@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: flex-start;
   background-color: #ffff;
+  max-width: 1440px;
+  width: 100%;
 }
 
 .saved-news-header__title {

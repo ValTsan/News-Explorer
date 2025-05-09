@@ -90,10 +90,10 @@ function Header({
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <nav className="mobile__dropdown">
+        <nav className="header__mobile-dropdown">
           <Link
             to="/"
-            className="mobile__dropdown-item"
+            className="header__mobile-dropdown-item"
             onClick={() => setMenuOpen(false)}
           >
             Home
@@ -101,7 +101,7 @@ function Header({
           {isLoggedIn && (
             <Link
               to="/saved-news"
-              className="mobile__dropdown-item"
+              className="header__mobile-dropdown-item"
               onClick={() => setMenuOpen(false)}
             >
               Saved Articles
@@ -109,7 +109,7 @@ function Header({
           )}
           {isLoggedIn ? (
             <button
-              className="mobile__dropdown-signin_button"
+              className="header__mobile-dropdown-signin_button"
               onClick={() => {
                 handleLogout();
                 setMenuOpen(false);
@@ -119,7 +119,7 @@ function Header({
             </button>
           ) : (
             <button
-              className="mobile__dropdown-signin_button"
+              className="header__mobile-dropdown-signin_button"
               onClick={() => {
                 handleLoginClick();
                 setMenuOpen(false);
