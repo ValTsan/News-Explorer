@@ -10,11 +10,13 @@ function Results({
   articles,
   showMoreArticles,
   visibleArticles,
-  onCardLike,
-  onCardDelete,
+  handleCardLike,
+  handleCardDelete,
   savedArticles,
   isLoggedIn,
 }) {
+  console.log("Results component received:", { articles, isLoading, error });
+
   if (isLoading) {
     return (
       <div className="results result_type_preloader">
@@ -28,32 +30,14 @@ function Results({
     return (
       <div className="results">
         <img
-          className="results-image"
+          className="results__image"
           src={notFoundImage}
           alt="Not Found Image"
         ></img>
         <p>
-          <span className="results-not-found-title">Nothing found</span>{" "}
+          <span className="results__not-found-title">Nothing found</span>{" "}
         </p>
-        <span className="results-not-found-description">
-          Sorry, but nothing matched your search terms.
-        </span>
-      </div>
-    );
-  }
-
-  if (articles.length === 0) {
-    return (
-      <div className="results">
-        <img
-          className="results-image"
-          src={notFoundImage}
-          alt="Not Found Image"
-        ></img>
-        <p>
-          <span className="results-not-found-title">Nothing found.</span>
-        </p>
-        <span className="results-not-found-description">
+        <span className="results__not-found-description">
           Sorry, but nothing matched your search terms.
         </span>
       </div>
@@ -63,7 +47,7 @@ function Results({
   return (
     <div className="results-list">
       <div className="results-list__page-title">Search Results</div>
-      {Array.isArray(articles) && (
+      {Array.isArray(articles) && articles.length > 0 && (
         <div className="results-list__cards">
           {articles.slice(0, visibleArticles).map((article, index) => {
             console.log("Rendering article:", article.title || article);
@@ -71,25 +55,20 @@ function Results({
               <NewsCard
                 key={index}
                 article={article}
-                savedArticles={savedArticles}
-                onCardLike={onCardLike}
-                onCardDelete={onCardDelete}
                 isLoggedIn={isLoggedIn}
+                handleCardLike={handleCardLike}
+                handleCardDelete={handleCardDelete}
+                savedArticles={savedArticles}
               />
             );
           })}
         </div>
       )}
-
-      {visibleArticles < articles.length &&
-        console.log(
-          "visibleArticles",
-          visibleArticles
-        )(
-          <button className="show-more" onClick={showMoreArticles}>
-            Show More
-          </button>
-        )}
+      {visibleArticles < articles.length && (
+        <button className="show-more" onClick={showMoreArticles}>
+          Show More
+        </button>
+      )}
     </div>
   );
 }

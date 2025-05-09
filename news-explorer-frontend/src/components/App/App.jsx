@@ -24,7 +24,7 @@ function App() {
     username: "",
   });
 
-  // const [userArticles, setUserArticles] = useState([]);
+  const [userArticles, setUserArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,7 +39,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const isSavedNews = location.pathname === "/saved-news";
 
-  console.log(isLoggedIn);
+  console.log("isLoggedin", isLoggedIn);
 
   const navigate = useNavigate();
 
@@ -134,37 +134,54 @@ function App() {
     };
   }, [activeModal]);
 
+  // const handleCardLike = (article) => {
+  //   const token = getItems();
+  //   console.log(token);
+  //   if (!token) return;
+  //   console.log(article);
+
+  //   const articleId = saveArticle(article);
+  //   article.articleId = articleId;
+  //   console.log(article.articleId);
+
+  //   // Article ID logged for confirmation
+  //   console.log("Article ID:", articleId);
+
+  //   //Split Search query into individuals keywords
+  //   article.keywords = searchQuery.split("");
+
+  //   // Article with attached keywords logged for confirmation
+  //   console.log(
+  //     "Article with attached keywords:",
+  //     article.keywords.slice(0, 2)
+  //   );
+
+  //   // Pass the articleId and article object to the API
+  //   savedArticles(article, token)
+  //     .then((likedArticle) => {
+  //       setSavedArticles([...savedArticles, likedArticle]);
+  //       console.log("Article saved successfully:", likedArticle);
+  //     })
+  //     .catch(console.error("Error saving article:", error));
+  // };
+
+  // const handleSavedArticles = () => {};
+
   const handleCardLike = (article) => {
     const token = getItems();
-    console.log(token);
     if (!token) return;
-    // console.log(article);
-    const articleId = saveArticle(article);
-    article.articleId = articleId;
-    console.log(article.articleId);
 
-    // Article ID logged for confirmation
-    conlose.log("Article ID:", articleId);
-
-    //Split Search query into individuals keywords
-    article.keywords = searchQuery.split("");
-
-    // Article with attached keywords logged for confirmation
-    console.log(
-      "Article with attached keywords:",
-      article.keywords.slice(0, 2)
-    );
-
-    // Pass the articleId and article object to the API
-    savedArticles(article, token)
-      .then((likedArticle) => {
-        setSavedArticles([...savedArticles, likedArticle]);
-        console.log("Article saved successfully:", likedArticle);
+    // Call the saveArticle API function
+    saveArticle(article, token)
+      .then((savedArticle) => {
+        // Update the savedArticles state with the new article
+        setSavedArticles([...savedArticles, savedArticle]);
+        console.log("Article saved successfully:", savedArticle);
       })
-      .catch(console.error("Error saving article:", error));
+      .catch((error) => {
+        console.error("Error saving article:", error);
+      });
   };
-
-  const handleSavedArticles = () => {};
 
   const handleCardDelete = (article) => {
     const token = getToken();
@@ -197,7 +214,7 @@ function App() {
   };
 
   // HANDLE SEARCH LOGIC
-  const handlSearch = async (searchQuery) => {
+  const handleSearch = async (searchQuery) => {
     if (!searchQuery.trim()) {
       setError("Please enter a search query");
       return;
@@ -215,8 +232,10 @@ function App() {
       console.log("Fetched articles for query:", news);
 
       setArticles(news);
-      if (news.lenght === 0) {
+      if (news.length === 0) {
         setError("No articles found");
+        setArticles([]);
+        return;
       }
     } catch (err) {
       console.error("Error fetching articles:", err);
@@ -255,9 +274,9 @@ function App() {
                         isLoggedIn={isLoggedIn}
                         handleLogout={handleLogout}
                         isLoading={isLoading}
-                        handleSearch={handlSearch}
+                        handleSearch={handleSearch}
                         isSubmitted={isSubmitted}
-                        articles={setArticles}
+                        articles={articles}
                         error={error}
                         handleCardLike={handleCardLike}
                         onCardDelete={handleCardDelete}
