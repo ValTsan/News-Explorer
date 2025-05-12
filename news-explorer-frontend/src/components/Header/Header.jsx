@@ -5,12 +5,6 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 import "./Header.css";
 
-[...document.querySelectorAll("*")].forEach((el) => {
-  if (el.offsetWidth > document.documentElement.clientWidth) {
-    console.log("Overflowing element:", el);
-  }
-});
-
 function Header({
   handleLoginClick,
   isLoggedIn,

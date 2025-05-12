@@ -18,7 +18,6 @@
 .modal_open {
   visibility: visible;
   opacity: 1;
-  transition: visibility delay 0.5s linear 0.5s, opacity 0.5s linear;
 }
 .modal__close {
   background: transparent url("../../assets/close-button.svg");

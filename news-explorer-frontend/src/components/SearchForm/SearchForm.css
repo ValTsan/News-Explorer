@@ -66,17 +66,14 @@
 
 @media (max-width: 480px) {
   .search-container {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 10px;
-    max-width: 288px;
     width: 100%;
-    height: 128px;
+    height: auto;
   }
 
   .search-input {
-    max-width: 264px;
+    max-width: 288px;
     width: 100%;
     height: 56px;
   }
@@ -85,5 +82,6 @@
     position: static;
     max-width: 288px;
     width: 100%;
+    height: 56px;
   }
 }

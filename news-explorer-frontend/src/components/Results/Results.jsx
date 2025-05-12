@@ -19,9 +19,12 @@ function Results({
 
   if (isLoading) {
     return (
-      <div className="results result_type_preloader">
-        <Preloader />
-        <div>Searching for news...</div>
+      <div className="results-list">
+        <div className="results-list__page-title">Search Results</div>
+        <div className="results-list__preloader">
+          <Preloader />
+          <div>Searching for news...</div>
+        </div>
       </div>
     );
   }
@@ -65,7 +68,7 @@ function Results({
         </div>
       )}
       {visibleArticles < articles.length && (
-        <button className="show-more" onClick={showMoreArticles}>
+        <button className="result-show-more" onClick={showMoreArticles}>
           Show More
         </button>
       )}
