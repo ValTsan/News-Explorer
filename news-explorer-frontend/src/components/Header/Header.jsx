@@ -5,6 +5,12 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 import "./Header.css";
 
+[...document.querySelectorAll("*")].forEach((el) => {
+  if (el.offsetWidth > document.documentElement.clientWidth) {
+    console.log("Overflowing element:", el);
+  }
+});
+
 function Header({
   handleLoginClick,
   isLoggedIn,
@@ -109,7 +115,11 @@ function Header({
           )}
           {isLoggedIn ? (
             <button
-              className="header__mobile-dropdown-signin_button"
+              className={`header__mobile-dropdown-signin_button ${
+                isSavedNews
+                  ? "header__mobile-dropdown-signin_button--black"
+                  : ""
+              }`}
               onClick={() => {
                 handleLogout();
                 setMenuOpen(false);
