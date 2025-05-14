@@ -137,10 +137,6 @@
     width: 24px;
     background-size: contain;
   }
-  .modal {
-    padding-top: 56px;
-    align-items: normal;
-  }
 }
 
 @media (max-width: 480px) {

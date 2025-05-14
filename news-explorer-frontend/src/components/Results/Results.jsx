@@ -19,11 +19,13 @@ function Results({
 
   if (isLoading) {
     return (
-      <div className="results-list">
-        <div className="results-list__page-title">Search Results</div>
-        <div className="results-list__preloader">
-          <Preloader />
-          <div>Searching for news...</div>
+      <div className="results">
+        <div className="results__container">
+          <div className="results__page-title">Search Results</div>
+          <div className="results__preloader">
+            <Preloader />
+            <div className="results__preloader-text">Searching for news...</div>
+          </div>
         </div>
       </div>
     );
@@ -31,7 +33,7 @@ function Results({
 
   if (error) {
     return (
-      <div className="results">
+      <div className="results__error">
         <img
           className="results__image"
           src={notFoundImage}
@@ -48,10 +50,10 @@ function Results({
   }
 
   return (
-    <div className="results-list">
-      <div className="results-list__page-title">Search Results</div>
+    <div className="results__container">
+      <div className="results__page-title">Search Results</div>
       {Array.isArray(articles) && articles.length > 0 && (
-        <div className="results-list__cards">
+        <div className="results__cards">
           {articles.slice(0, visibleArticles).map((article, index) => {
             console.log("Rendering article:", article.title || article);
             return (

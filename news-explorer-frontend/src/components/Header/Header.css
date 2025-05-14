@@ -199,17 +199,17 @@
 }
 
 .header__mobile-dropdown-signin_button {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: center;
   background: transparent;
   color: white;
   border: 2px solid white;
-  padding: 10px 20px;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
   border-radius: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 10px;
   width: 80%;
-  text-align: center;
   transition: background 0.3s ease-in-out;
 }
 
@@ -221,7 +221,7 @@
   }
   .header__logo {
     font-size: 20px;
-    padding: 20px 0 20px 40px;
+    padding: 0;
     margin: 0;
   }
 }
@@ -272,10 +272,11 @@
   .header.menu-open .header__logo.header__logo--black,
   .header.menu-open .header__menu-icon.header__menu-icon--black {
     color: #fff;
+    display: flex;
   }
 
   .header__mobile-dropdown-item {
-    margin-left: 16px;
+    padding-left: 16px;
     padding-bottom: 22px;
   }
 
