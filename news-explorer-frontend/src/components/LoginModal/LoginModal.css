@@ -3,6 +3,15 @@
   background-color: #fff;
 }
 
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin: 0 0 30px;
+  color: #2f71e5;
+}
+
 .modal__button-container {
   display: flex;
   justify-content: center;
@@ -16,9 +25,9 @@
   background-color: transparent;
   border: none;
   color: grey;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 14px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
   cursor: pointer;
   padding-top: 10px;
 }

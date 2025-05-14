@@ -89,7 +89,8 @@ const LoginModal = ({
           className="modal__sign-up_button"
           onClick={handleRegisterModal}
         >
-          or Sign Up
+          {/* or Sign Up */}
+          <span>or&nbsp;</span> <span className="highlighted"> Sign up</span>
         </button>
       </div>
     </ModalWithForm>

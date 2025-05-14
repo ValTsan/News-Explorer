@@ -1,7 +1,6 @@
 import "./SavedNewsHeader.css";
 import SavedCardList from "../SavedCardList/SavedCardList";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { UserArticleContext } from "../../contexts/UserArticleContext";
 import { useContext, React } from "react";
 
 function SavedNewsHeader({ savedArticles }) {
@@ -14,7 +13,8 @@ function SavedNewsHeader({ savedArticles }) {
           <h1 className="saved-news-header__title">Saved articles</h1>
         </div>
         <p className="saved-news-header__subtitle">
-          {currentUser.name}, you have {savedArticles.length} saved articles
+          {currentUser?.username}, you have {savedArticles.length} saved
+          articles
         </p>
 
         <p className="saved-news-header__keywords">By keywords:</p>

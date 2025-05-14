@@ -1,6 +1,6 @@
 import "./ModalWithForm.css";
 
-const ModalWithForm = ({
+function ModalWithForm({
   children,
   title,
   onSubmit,
@@ -11,12 +11,19 @@ const ModalWithForm = ({
   onClose,
   isOpen,
   isActive,
-}) => {
+}) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit) {
+      onSubmit(e);
+    }
+  };
+
   return (
     <div className={`modal ${isOpen ? "modal_open" : ""}`}>
       <div className="modal__form-container">
         <h3 className="modal__title">{title}</h3>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           {children}
           <div className="modal__button-container">
             <div className="modal__button-wrapper">
@@ -41,6 +48,6 @@ const ModalWithForm = ({
       </div>
     </div>
   );
-};
+}
 
 export default ModalWithForm;

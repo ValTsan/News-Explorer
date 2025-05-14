@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import SuccessModal from "../SuccessModal/SuccessModal";
 import { fetchNews } from "../../utils/newsAPI";
 import { setToken, removeToken } from "../../utils/token";
 import { authorize, checkToken } from "../../utils/auth";
@@ -24,19 +25,19 @@ function App() {
     username: "",
   });
 
-  const [userArticles, setUserArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [savedArticles, setSavedArticles] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const [visibleArticles, setVisibleArticles] = useState(3);
   const showMoreArticles = () => {
     setVisibleArticles((prev) => prev + 3);
   };
-  const [savedArticles, setSavedArticles] = useState([]);
+
   const isSavedNews = location.pathname === "/saved-news";
 
   console.log("isLoggedin", isLoggedIn);
@@ -96,18 +97,46 @@ function App() {
   const handleRegistration = (values) => {
     if (!values) return;
 
-    checkToken(values)
-      .then((res) => {
-        console.log(res);
-        localStorage.Storage.addItem("jwt");
+    // Simulate a successful registration response
+    const mockResponse = {
+      data: {
+        username: values.name,
+        email: values.email,
+        avatar: values.avatar || "",
+        _id: "mock-user-id-123", // mock ID
+      },
+    };
+    // Simulate an API delay
+    setTimeout(() => {
+      try {
+        // Store mock JWT
+        localStorage.setItem("jwt", "mock-jwt-token-123");
+
+        // Update state
         setIsLoggedIn(true);
-        setCurrentUser(res.data);
+        setCurrentUser(mockResponse.data);
         closeActiveModal();
-        setActiveModal("Sucess");
-      })
-      .catch((res) => {
-        console.log(`There is an error in handleUserRegistration: ${res}`);
-      });
+        setActiveModal("success");
+        console.log("About to show success modal");
+
+        console.log("Registration successful:", mockResponse);
+      } catch (err) {
+        console.log(`There is an error in handleUserRegistration: ${err}`);
+      }
+    }, 500); // Half second delay to simulate API call
+
+    // checkToken(values)
+    //   .then((res) => {
+    //     console.log(res);
+    //     localStorage.Storage.addItem("jwt");
+    //     setIsLoggedIn(true);
+    //     setCurrentUser(res.data);
+    //     closeActiveModal();
+    //     setActiveModal("Sucess");
+    //   })
+    //   .catch((res) => {
+    //     console.log(`There is an error in handleUserRegistration: ${res}`);
+    //   });
   };
 
   const handleLogout = () => {
@@ -319,6 +348,11 @@ function App() {
                 setActiveModal={setActiveModal}
                 handleLoginModal={handleLoginModal}
                 handleRegistration={handleRegistration}
+              />
+              <SuccessModal
+                isOpen={activeModal === "success"}
+                onClose={closeActiveModal}
+                setActiveModal={setActiveModal}
               />
             </div>
           </UserArticleContext.Provider>

@@ -2,10 +2,12 @@ import "./RegisterModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 
-import LoginModal from "../../components/LoginModal/LoginModal";
-import { checkToken } from "../../utils/auth";
-
-const RegisterModal = ({ onSignUp, isOpen, onClose, handleLoginModal }) => {
+function RegisterModal({
+  handleRegistration,
+  handleLoginModal,
+  isOpen,
+  onClose,
+}) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -32,6 +34,11 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, handleLoginModal }) => {
     setUserName(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleRegistration(newUser);
+  };
+
   const newUser = {
     email: userEmail,
     password: userPassword,
@@ -39,16 +46,11 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, handleLoginModal }) => {
     avatar: avatar,
   };
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    checkToken(newUser);
-  }
-
   return (
     <ModalWithForm
       title="Sign Up"
       name="register-user"
-      buttonText="Submit"
+      buttonText="Sign Up"
       onClose={onClose}
       onSubmit={handleSubmit}
       isOpen={isOpen}
@@ -95,9 +97,8 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, handleLoginModal }) => {
         </label>
       </fieldset>
       <div className="modal__button-container">
-        <button type="submit" className="modal__submit" onSubmit={handleSubmit}>
-          {" "}
-          Sign Up{" "}
+        <button type="submit" className="modal__submit">
+          Sign Up
         </button>
         <button
           type="button"
@@ -105,11 +106,11 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, handleLoginModal }) => {
           onClick={handleLoginModal}
         >
           {" "}
-          <span>or </span> <span className="highlighted"> Sign In</span>
+          <span>or&nbsp;</span> <span className="highlighted"> Sign In</span>
         </button>
       </div>
     </ModalWithForm>
   );
-};
+}
 
 export default RegisterModal;
