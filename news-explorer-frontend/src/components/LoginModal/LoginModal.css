@@ -50,3 +50,10 @@
 .modal__login_submit:hover {
   background-color: #2f71e5;
 }
+
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}

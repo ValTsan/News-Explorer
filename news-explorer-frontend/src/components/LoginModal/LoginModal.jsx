@@ -3,20 +3,24 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const LoginModal = ({
+function LoginModal({
   onLogin,
   isOpen,
   onClose,
   buttonText,
   handleRegisterModal,
-}) => {
+}) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   useEffect(() => {
     if (isOpen === true) {
       setUserEmail("");
       setUserPassword("");
+      setEmailError("");
+      setPasswordError("");
     }
   }, [isOpen]);
 
@@ -33,9 +37,35 @@ const LoginModal = ({
     password: userPassword,
   };
 
+  const validateForm = () => {
+    let isValid = true;
+
+    // Email validation
+    if (!userEmail) {
+      setEmailError("Email is required");
+      isValid = false;
+    } else if (!/\S+@\S+.\S+/.test(userEmail)) {
+      setEmailError("Invalid email address");
+      isValid = false;
+    } else {
+      setEmailError("");
+    }
+    // Password validation
+    if (!userPassword) {
+      setPasswordError("Password is required");
+      isValid = false;
+    } else {
+      setPasswordError("");
+    }
+
+    return isValid;
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
-    onLogin(user);
+    if (validateForm()) {
+      onLogin(user);
+    }
   }
 
   return (
@@ -51,7 +81,9 @@ const LoginModal = ({
         <label className="modal__label">
           Email
           <input
-            className="modal__input"
+            className={`modal__input ${
+              emailError ? "modal__input_type_error" : ""
+            }`}
             type="email"
             name="email"
             placeholder="Email"
@@ -60,11 +92,15 @@ const LoginModal = ({
             maxLength="50"
             onChange={handleEmailChange}
           />
+          {emailError && <span className="modal__error">{emailError}</span>}
         </label>
+
         <label className="modal__label">
           Password
           <input
-            className="modal__input"
+            className={`modal__input ${
+              passwordError ? "modal__input_type_error" : ""
+            }`}
             type="password"
             name="password"
             placeholder="Password"
@@ -73,6 +109,9 @@ const LoginModal = ({
             maxLength="1000"
             onChange={handlePasswordChange}
           />
+          {passwordError && (
+            <span className="modal__error">{passwordError}</span>
+          )}
         </label>
       </fieldset>
       <div className="modal__button-container">
@@ -95,5 +134,5 @@ const LoginModal = ({
       </div>
     </ModalWithForm>
   );
-};
+}
 export default LoginModal;

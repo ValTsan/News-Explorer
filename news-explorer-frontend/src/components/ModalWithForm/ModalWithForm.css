@@ -56,14 +56,14 @@
   color: black;
 }
 
-/* .modal__label {
+.modal__label {
   display: flex;
   flex-direction: column;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 12px;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   color: #2f71e5;
-} */
+}
 
 .modal__input {
   width: 100%;
