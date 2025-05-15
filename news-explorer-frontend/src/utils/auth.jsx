@@ -1,5 +1,4 @@
 export const authorize = (email, password) => {
-  // Pretend we did a fetch request that gave us back a token
   return new Promise((resolve, reject) => {
     resolve({ token: "Fake Token", user: { email, password } });
   });
@@ -17,15 +16,6 @@ export const checkToken = (token) => {
     }
   });
 };
-
-// export const checkToken = (token) => {
-//   // Pretend we did a fetch request that gave us back a user
-//   return new Promise((resolve, reject) => {
-//     resolve({
-//       data: { name: "Fake User", email: "fake@email.com", id: 'fake-id"' },
-//     });
-//   });
-// };
 
 export const likeArticle = (article, token) => {
   const articleJson = {

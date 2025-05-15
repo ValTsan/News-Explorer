@@ -126,51 +126,6 @@ function App() {
     }
   };
 
-  // .then((res) => {
-  //   console.log(res);
-  //   setToken(res.token);
-  //   if (res.token) {
-  //     authorize(res).then((user) => {
-  //       setCurrentUser(user);
-  //       setIsLoggedIn(true);
-  //       closeActiveModal();
-  //       navigate("/");
-  //     });
-  //   }
-  // })
-  // .catch((err) => {
-  //   console.error("Failed attempt to login", err);
-  // });
-  // };
-
-  // const handleRegistration = (values) => {
-  //   if (!values) return;
-
-  //   // Simulate a successful registration response
-  //   const mockResponse = {
-  //     data: {
-  //       name: values.name,
-  //       email: values.email,
-  //       id: "fake-id", // Match the format from checkToken
-  //     };
-
-  //     localStorage.setItem('userData', JSON.stringify(userData))
-  //   };
-  //   // Simulate an API delay
-  //   setTimeout(() => {
-  //     try {
-  //       // Don't set logged in for registration
-  //       setIsLoggedIn(false); // Changed this to false since user needs to login after registration
-  //       setCurrentUser(null); // Clear any existing user data
-  //       closeActiveModal();
-  //       setActiveModal("success");
-  //       console.log("Registration successful:", userData);
-  //     } catch (err) {
-  //       console.log(`There is an error in handleUserRegistration: ${err}`);
-  //     }
-  //   }, 500);
-  // };
-
   const handleLogout = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
@@ -312,7 +267,6 @@ function App() {
         <CurrentUserContext.Provider value={userContext}>
           <UserArticleContext.Provider value={userArticleContext}>
             <div
-              // className="page__content"
               className={
                 isSavedNews
                   ? "page__content-saved-news-active"

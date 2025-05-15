@@ -93,7 +93,6 @@
   }
 
   .footer__social {
-    display: flex;
     justify-content: space-between;
   }
 
@@ -102,8 +101,6 @@
   }
 
   .footer__media {
-    grid-area: media;
-    display: flex;
     gap: 15px;
   }
 
