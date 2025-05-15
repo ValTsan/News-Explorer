@@ -23,7 +23,7 @@ function ModalWithForm({
     <div className={`modal ${isOpen ? "modal_open" : ""}`}>
       <div className="modal__form-container">
         <h3 className="modal__title">{title}</h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           {children}
           <div className="modal__button-container">
             <div className="modal__button-wrapper">

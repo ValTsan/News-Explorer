@@ -76,17 +76,21 @@ function App() {
     if (!values) {
       return;
     }
-    authorize(values)
+    authorize(values.email, values.password)
       .then((res) => {
         console.log(res);
         setToken(res.token);
         if (res.token) {
-          authorize(res).then((user) => {
-            setCurrentUser(user);
-            setIsLoggedIn(true);
-            closeActiveModal();
-            navigate("/");
-          });
+          checkToken(res.token)
+            .then((userData) => {
+              setCurrentUser(userData.data);
+              setIsLoggedIn(true);
+              closeActiveModal();
+              navigate("/");
+            })
+            .catch((err) => {
+              console.error("Failed to get user data", err);
+            });
         }
       })
       .catch((err) => {
@@ -97,47 +101,75 @@ function App() {
   const handleRegistration = (values) => {
     if (!values) return;
 
-    // Simulate a successful registration response
-    const mockResponse = {
-      data: {
-        username: values.name,
+    try {
+      // Create user data object
+      const userData = {
+        name: values.name,
         email: values.email,
-        avatar: values.avatar || "",
-        _id: "mock-user-id-123", // mock ID
-      },
-    };
-    // Simulate an API delay
-    setTimeout(() => {
-      try {
-        // Store mock JWT
-        localStorage.setItem("jwt", "mock-jwt-token-123");
+        id: values.email, // Using email as ID for now
+      };
 
-        // Update state
-        setIsLoggedIn(true);
-        setCurrentUser(mockResponse.data);
-        closeActiveModal();
-        setActiveModal("success");
-        console.log("About to show success modal");
+      // Store user data for later use
+      localStorage.setItem("userData", JSON.stringify(userData));
 
-        console.log("Registration successful:", mockResponse);
-      } catch (err) {
-        console.log(`There is an error in handleUserRegistration: ${err}`);
-      }
-    }, 500); // Half second delay to simulate API call
+      // Reset states
+      setIsLoggedIn(false);
+      setCurrentUser(null);
 
-    // checkToken(values)
-    //   .then((res) => {
-    //     console.log(res);
-    //     localStorage.Storage.addItem("jwt");
-    //     setIsLoggedIn(true);
-    //     setCurrentUser(res.data);
-    //     closeActiveModal();
-    //     setActiveModal("Sucess");
-    //   })
-    //   .catch((res) => {
-    //     console.log(`There is an error in handleUserRegistration: ${res}`);
-    //   });
+      // Show success modal
+      closeActiveModal();
+      setActiveModal("success");
+
+      console.log("Registration successful:", userData);
+    } catch (err) {
+      console.log(`There is an error in handleUserRegistration: ${err}`);
+    }
   };
+
+  // .then((res) => {
+  //   console.log(res);
+  //   setToken(res.token);
+  //   if (res.token) {
+  //     authorize(res).then((user) => {
+  //       setCurrentUser(user);
+  //       setIsLoggedIn(true);
+  //       closeActiveModal();
+  //       navigate("/");
+  //     });
+  //   }
+  // })
+  // .catch((err) => {
+  //   console.error("Failed attempt to login", err);
+  // });
+  // };
+
+  // const handleRegistration = (values) => {
+  //   if (!values) return;
+
+  //   // Simulate a successful registration response
+  //   const mockResponse = {
+  //     data: {
+  //       name: values.name,
+  //       email: values.email,
+  //       id: "fake-id", // Match the format from checkToken
+  //     };
+
+  //     localStorage.setItem('userData', JSON.stringify(userData))
+  //   };
+  //   // Simulate an API delay
+  //   setTimeout(() => {
+  //     try {
+  //       // Don't set logged in for registration
+  //       setIsLoggedIn(false); // Changed this to false since user needs to login after registration
+  //       setCurrentUser(null); // Clear any existing user data
+  //       closeActiveModal();
+  //       setActiveModal("success");
+  //       console.log("Registration successful:", userData);
+  //     } catch (err) {
+  //       console.log(`There is an error in handleUserRegistration: ${err}`);
+  //     }
+  //   }, 500);
+  // };
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");

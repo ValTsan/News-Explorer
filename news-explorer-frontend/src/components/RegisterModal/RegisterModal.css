@@ -1,6 +1,9 @@
 .modal__inputs {
   border: none;
   background-color: #fff;
+  /* padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px; */
 }
 
 .modal__login {
@@ -28,7 +31,7 @@
   flex-direction: column;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 12px;
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   color: #2f71e5;
 }
 
@@ -61,6 +64,17 @@
   color: white;
   border: none;
 }
+
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* .modal__input_type_error {
+  border: 1px solid #ff0000;
+} */
 
 .highlighted {
   color: #2f71e5;

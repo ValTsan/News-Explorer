@@ -6,13 +6,26 @@ export const authorize = (email, password) => {
 };
 
 export const checkToken = (token) => {
-  // Pretend we did a fetch request that gave us back a user
   return new Promise((resolve, reject) => {
-    resolve({
-      data: { name: "Fake User", email: "fake@email.com", id: 'fake-id"' },
-    });
+    const userData = localStorage.getItem("userData");
+    if (userData) {
+      resolve({
+        data: JSON.parse(userData),
+      });
+    } else {
+      reject(new Error("No user data found"));
+    }
   });
 };
+
+// export const checkToken = (token) => {
+//   // Pretend we did a fetch request that gave us back a user
+//   return new Promise((resolve, reject) => {
+//     resolve({
+//       data: { name: "Fake User", email: "fake@email.com", id: 'fake-id"' },
+//     });
+//   });
+// };
 
 export const likeArticle = (article, token) => {
   const articleJson = {
