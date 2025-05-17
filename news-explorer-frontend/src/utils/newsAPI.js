@@ -19,7 +19,7 @@ export const fetchNews = async (query) => {
     }
 
     const data = await response.json();
-
+    console.log("Raw article data:", data.articles[0]);
     console.log("Fetched articles from API:", data.articles);
 
     // Map through the articles and format them
@@ -30,6 +30,7 @@ export const fetchNews = async (query) => {
       description: article.description,
       urlToImage: article.urlToImage,
       url: article.url,
+      keyword: query,
     }));
 
     return articles;

@@ -10,6 +10,8 @@ function NewsCard({
   setActiveModal,
   savedArticles = [],
 }) {
+  console.log("Article data in NewsCard:", article);
+
   const location = useLocation();
   const [showSignInText, setShowSignInText] = useState(false);
 
@@ -55,7 +57,7 @@ function NewsCard({
 
   return (
     <div className="news-card">
-      {article.keyword && (
+      {isOnSavedNews && article.keyword && (
         <div className="news-card__keyword">{article.keyword}</div>
       )}
       <img
