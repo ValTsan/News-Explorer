@@ -131,7 +131,12 @@
   }
 
   .results__cards {
-    gap: 5px;
+    gap: 8px;
+  }
+
+  .result-show-more {
+    margin-top: 32px;
+    margin-bottom: 40px;
   }
 }
 

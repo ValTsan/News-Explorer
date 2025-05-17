@@ -3,7 +3,13 @@ import SavedCardList from "../SavedCardList/SavedCardList";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext, React } from "react";
 
-function SavedNewsHeader({ savedArticles }) {
+function SavedNewsHeader({
+  savedArticles,
+  isLoggedIn,
+  handleCardLike,
+  handleCardDelete,
+  setActiveModal,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -18,7 +24,13 @@ function SavedNewsHeader({ savedArticles }) {
 
         <p className="saved-news-header__keywords">By keywords:</p>
       </div>
-      <SavedCardList savedArticles={savedArticles} />
+      <SavedCardList
+        isLoggedIn={isLoggedIn}
+        savedArticles={savedArticles}
+        handleCardLike={handleCardLike}
+        handleCardDelete={handleCardDelete}
+        setActiveModal={setActiveModal}
+      />
     </div>
   );
 }

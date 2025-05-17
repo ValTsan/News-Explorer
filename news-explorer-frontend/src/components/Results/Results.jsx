@@ -14,8 +14,11 @@ function Results({
   handleCardDelete,
   savedArticles,
   isLoggedIn,
+  setActiveModal,
 }) {
-  console.log("Results component received:", { articles, isLoading, error });
+  // const [activeModal, setActiveModal] = useState("login");
+
+  // console.log("Results component received:", { articles, isLoading, error });
 
   if (isLoading) {
     return (
@@ -55,15 +58,16 @@ function Results({
       {Array.isArray(articles) && articles.length > 0 && (
         <div className="results__cards">
           {articles.slice(0, visibleArticles).map((article, index) => {
-            console.log("Rendering article:", article.title || article);
+            // console.log("Rendering article:", article.title || article);
             return (
               <NewsCard
-                key={index}
+                key={article._id || article.url}
                 article={article}
                 isLoggedIn={isLoggedIn}
                 handleCardLike={handleCardLike}
                 handleCardDelete={handleCardDelete}
                 savedArticles={savedArticles}
+                setActiveModal={setActiveModal}
               />
             );
           })}

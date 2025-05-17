@@ -46,6 +46,7 @@
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
+  text-align: justify;
   line-height: 24px;
   padding-bottom: 15px;
   margin: 0;
@@ -73,6 +74,7 @@
   .about__text-container {
     max-width: 420px;
     width: 100%;
+    padding-right: 40px;
   }
 
   .about__title {
@@ -88,5 +90,9 @@
 
   .about__title {
     padding-top: 0px;
+  }
+
+  .about__text-container {
+    padding-right: 10px;
   }
 }

@@ -14,8 +14,13 @@ import { setToken, removeToken } from "../../utils/token";
 import { authorize, checkToken } from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import SavedCardList from "../SavedCardList/SavedCardList";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { getItems, saveArticle } from "../../utils/ThirdPartyAPI";
+import {
+  getItems,
+  saveArticle,
+  deleteArticle,
+} from "../../utils/ThirdPartyAPI";
 import { UserArticleContext } from "../../contexts/UserArticleContext";
 
 function App() {
@@ -27,6 +32,9 @@ function App() {
 
   const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
+  useEffect(() => {
+    console.log("Active Modal State:", activeModal);
+  }, [activeModal]);
   const [searchQuery, setSearchQuery] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,8 +47,6 @@ function App() {
   };
 
   const isSavedNews = location.pathname === "/saved-news";
-
-  console.log("isLoggedin", isLoggedIn);
 
   const navigate = useNavigate();
 
@@ -102,21 +108,16 @@ function App() {
     if (!values) return;
 
     try {
-      // Create user data object
       const userData = {
         name: values.name,
         email: values.email,
-        id: values.email, // Using email as ID for now
+        id: values.email,
       };
-
-      // Store user data for later use
       localStorage.setItem("userData", JSON.stringify(userData));
 
-      // Reset states
       setIsLoggedIn(false);
       setCurrentUser(null);
 
-      // Show success modal
       closeActiveModal();
       setActiveModal("success");
 
@@ -181,45 +182,99 @@ function App() {
   //     .catch(console.error("Error saving article:", error));
   // };
 
-  // const handleSavedArticles = () => {};
+  //    const handleSaveArticle = () => {
+  //   title: article.title,
+  //   description: article.description,
+  //   url: article.url, // 👈 must include this
+  //   urlToImage: article.urlToImage,
+  //   source: article.source.name || article.source || "Unknown",
+  //   publishedAt: article.publishedAt,
+  //   keyword: activeKeyword || article.keyword || "General",
+  // };
+  // saveArticle(articleToSave, token);
+  // }
 
   const handleCardLike = (article) => {
     const token = getItems();
-    if (!token) return;
+    // console.log("Token from getItems:", token);
+    if (!token) {
+      console.log("No token found - user might not be logged in");
+      return;
+    }
+    console.log("Article received in handleCardLike:", article);
 
-    // Call the saveArticle API function
-    saveArticle(article, token)
+    const articleToSave = {
+      title: article.title,
+      description: article.description,
+      url: article.url,
+      urlToImage: article.urlToImage,
+      publishedAt: article.publishedAt,
+      keyword: article.keyword || "General",
+    };
+
+    // console.log("Attempting to save article:", articleToSave);
+    saveArticle(articleToSave, token)
       .then((savedArticle) => {
-        // Update the savedArticles state with the new article
-        setSavedArticles([...savedArticles, savedArticle]);
-        console.log("Article saved successfully:", savedArticle);
+        // console.log("API Response:", savedArticle);
+        setSavedArticles((prevArticles) => [...prevArticles, savedArticle]);
+        // console.log("Article saved successfully:", savedArticle);
       })
       .catch((error) => {
         console.error("Error saving article:", error);
       });
   };
 
+  // const handleCardDelete = (article) => {
+  //   const token = getToken();
+  //   if (!token) return;
+
+  //   const savedArticle = savedArticles.find(
+  //     (saved) => saved.url === article.url
+  //   );
+
+  //   if (savedArticle) {
+  //     const articleId = savedArticle._id;
+  //     console.log("Article ID:", articleId);
+  //     // Article ID logged for confirmation
+  //     Auth.deleteArticle(articleId, token)
+  //       .then(() => {
+  //         console.log("Article deleted successfully", articleId);
+  //         // Remove the article from the savedArticles state
+
+  //         setSavedArticles((prevArticles) =>
+  //           prevArticles.filter((a) => a._id !== articleId)
+  //         );
+  //         console.log("Article deleted successfully");
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error deleting article:", error);
+  //       });
+  //   } else {
+  //     console.log("Article not found in saved articles for deletion");
+  //   }
+  // };
+
   const handleCardDelete = (article) => {
-    const token = getToken();
+    const token = getItems();
     if (!token) return;
 
+    console.log("Article being deleted:", article);
+    console.log("Article _id to delete:", article.url);
+    console.log("All saved articles:", savedArticles);
+
     const savedArticle = savedArticles.find(
-      (saved) => saved.url === article.url
+      (saved) => saved.url === article.url || saved.link === article.url
     );
 
-    if (savedArticle) {
-      const articleId = savedArticle._id;
-      console.log("Article ID:", articleId);
-      // Article ID logged for confirmation
-      Auth.deleteArticle(articleId, token)
-        .then(() => {
-          console.log("Article deleted successfully", articleId);
-          // Remove the article from the savedArticles state
+    console.log("Found saved article to delete:", savedArticle);
 
+    if (savedArticle) {
+      deleteArticle(savedArticle._id)
+        .then(() => {
           setSavedArticles((prevArticles) =>
-            prevArticles.filter((a) => a._id !== articleId)
+            prevArticles.filter((a) => a._id !== savedArticle._id)
           );
-          console.log("Article deleted successfully");
+          console.log("Article deleted successfully:", savedArticle._id);
         })
         .catch((error) => {
           console.error("Error deleting article:", error);
@@ -285,6 +340,7 @@ function App() {
                   element={
                     <>
                       <Main
+                        setActiveModal={setActiveModal}
                         handleLoginClick={handleLoginClick}
                         isLoggedIn={isLoggedIn}
                         handleLogout={handleLogout}
@@ -294,7 +350,7 @@ function App() {
                         articles={articles}
                         error={error}
                         handleCardLike={handleCardLike}
-                        onCardDelete={handleCardDelete}
+                        handleCardDelete={handleCardDelete}
                         savedArticles={savedArticles}
                         searchQuery={searchQuery}
                         visibleArticles={visibleArticles}
@@ -310,11 +366,21 @@ function App() {
                       isLoggedIn={isLoggedIn}
                       setActiveModal={setActiveModal}
                     >
-                      <SavedNewsHeader
-                        isLoggedIn={isLoggedIn}
-                        handleLogout={handleLogout}
-                        savedArticles={savedArticles}
-                      />
+                      <div>
+                        <SavedNewsHeader
+                          isLoggedIn={isLoggedIn}
+                          savedArticles={savedArticles}
+                          handleCardDelete={handleCardDelete}
+                          setActiveModal={setActiveModal}
+                        />
+                        <SavedCardList
+                          isLoggedIn={isLoggedIn}
+                          savedArticles={savedArticles}
+                          handleCardLike={handleCardLike}
+                          handleCardDelete={handleCardDelete}
+                          setActiveModal={setActiveModal}
+                        />
+                      </div>
                     </ProtectedRoute>
                   }
                 />

@@ -13,7 +13,7 @@
   .saved-cards {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 8px;
   }
 }
 

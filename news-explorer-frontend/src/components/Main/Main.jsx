@@ -16,6 +16,7 @@ function Main({
   showMoreArticles,
   isLoggedIn,
   isSubmitted,
+  setActiveModal,
 }) {
   return (
     <main className="main">
@@ -36,6 +37,7 @@ function Main({
           visibleArticles={visibleArticles}
           showMoreArticles={showMoreArticles}
           isLoggedIn={isLoggedIn}
+          setActiveModal={setActiveModal}
         />
       )}
 

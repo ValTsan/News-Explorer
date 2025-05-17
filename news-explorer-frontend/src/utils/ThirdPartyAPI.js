@@ -21,12 +21,18 @@ export function saveArticle(article) {
   // article is a result from the NewsAPI
   return new Promise((resolve, reject) => {
     resolve({
-      _id: "65f7371e7bce9e7d331b11a0",
-      urlToImage: article.urlToImage,
-      title: article.title,
-      publishedAt: formatDate(article.publishedAt),
       description: article.description,
       link: article.url,
+      publishedAt: formatDate(article.publishedAt),
+      title: article.title,
+      urlToImage: article.urlToImage,
+      _id: "65f7371e7bce9e7d331b11a0",
     });
+  });
+}
+
+export function deleteArticle(articleId) {
+  return new Promise((resolve, reject) => {
+    resolve({ success: true });
   });
 }
