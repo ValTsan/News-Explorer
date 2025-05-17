@@ -128,8 +128,7 @@
   background-image: url("../../assets/save-icon-marked.svgg");
 } */
 .news-card__signin-text {
-  max-width: 182px;
-  width: 100%;
+  width: 182px;
   height: 40px;
   position: absolute;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -173,6 +172,11 @@
   .news-card__date {
     margin: 0;
     padding: 16px 15px 0;
+  }
+
+  .news-card__signin-text {
+    width: 145px;
+    right: 67px;
   }
 }
 
