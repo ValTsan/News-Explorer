@@ -259,7 +259,7 @@ function App() {
     if (!token) return;
 
     console.log("Article being deleted:", article);
-    console.log("Article _id to delete:", article.url);
+    console.log("Article url to delete:", article.url);
     console.log("All saved articles:", savedArticles);
 
     const savedArticle = savedArticles.find(

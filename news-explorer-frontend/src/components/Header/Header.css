@@ -164,6 +164,15 @@
   cursor: pointer;
 }
 
+.header__logo.header__logo--black,
+.header__button-home_active,
+.header__button-saved_active,
+.header__button-logout_active,
+.header.header--saved-news {
+  color: #000;
+  background-color: #fff;
+}
+
 /* Mobile menu icon css for 480px screen /home */
 .header__menu-icon {
   display: none;
