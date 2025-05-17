@@ -1,0 +1,296 @@
+/* Global box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Header css for main 1440px screen */
+
+.header {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 104px;
+}
+
+.header__logo {
+  max-width: 200px;
+  width: 100%;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 30px 0 26px 0;
+  margin: 0;
+}
+
+.header__desktop-nav {
+  max-width: 700px;
+  display: flex;
+}
+
+.header__button-home {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 30px 30px 0 0;
+  border-bottom: 2px solid white;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header__button-home:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.header__button-signin {
+  min-width: 176px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 40px;
+  margin: 20px 13px 13px 20px;
+  color: white;
+  border-style: solid;
+  border-radius: 30px;
+  border-width: 2px;
+  border-color: #fff;
+  background-color: transparent;
+}
+
+/* Signed in css for main 1440px screen */
+.header__button-saved {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  padding: 30px 8px 0 10px;
+  width: auto;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header__button-logout {
+  max-width: 112px;
+  width: 100%;
+  height: 48px;
+  border: 1px solid white;
+  border-radius: 30px;
+  background-image: url("../../assets/logout-white.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: transparent;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  margin: 19px 13px;
+  padding: 0px 28px 0 18px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Signed in css for main 1440px screen /saved-news */
+.header__logo.header__logo--black {
+  color: #000;
+}
+
+.header__menu-icon.header__menu-icon--black {
+  color: #000;
+}
+
+.header__button-home_active {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 30px 30px 0 0;
+  color: black;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header__button-saved_active {
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 18px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  padding: 30px 8px 0 10px;
+  width: auto;
+  border-bottom: 2px solid black;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header__button-logout_active {
+  max-width: 112px;
+  width: 100%;
+  height: 48px;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-image: url("../../assets/logout-black.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  margin: 20px 13px 13px 20px;
+  padding: 0px 28px 0 18px;
+  color: black;
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header__button-logout:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* Mobile menu icon css for 480px screen /home */
+.header__menu-icon {
+  display: none;
+}
+
+/* Mobile drop down menu css for 480px screen /home */
+.header__mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1a1b22;
+  padding: 20px 0;
+  z-index: 999;
+}
+
+.header__mobile-dropdown-item {
+  color: white;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 16px 0;
+  width: 100%;
+  text-align: left;
+  transition: color 0.3s ease-in-out;
+}
+
+.header__mobile-dropdown-item:hover {
+  color: gray;
+}
+
+.header__mobile-dropdown-signin_button {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 10px;
+  width: 80%;
+  transition: background 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 40px;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  .header__logo {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .header__logo {
+    padding: 16px 0;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .header__desktop-nav {
+    display: none;
+  }
+
+  .header__menu-icon {
+    display: block;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .header__menu-icon--black {
+    color: black;
+  }
+
+  .header__logo.header__logo--black {
+    color: #000;
+  }
+
+  .header__menu-icon.header__menu-icon--black {
+    color: #000;
+  }
+
+  .header__mobile-dropdown {
+    top: 51px;
+  }
+
+  .header.menu-open .header__logo.header__logo--black,
+  .header.menu-open .header__menu-icon.header__menu-icon--black {
+    color: #fff;
+    display: flex;
+  }
+
+  .header__mobile-dropdown-item {
+    padding-left: 16px;
+    padding-bottom: 22px;
+  }
+
+  .header--menu-open {
+    background-color: #fff;
+  }
+
+  .header.menu-open {
+    background-color: #1a1b22;
+  }
+
+  .header__button-signin {
+    min-width: auto;
+    padding: 8px 20px;
+    margin: 20px 0;
+  }
+}

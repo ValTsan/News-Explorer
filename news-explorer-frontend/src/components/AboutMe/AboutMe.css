@@ -1,0 +1,98 @@
+.about {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  background-color: white;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.about__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  margin: 80px 56px 80px 104px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-image: url("../../assets/ProfilePic.jpeg");
+  border-radius: 50%;
+}
+
+.about__text-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.about__title {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  padding: 0 0 24px;
+  margin: 0;
+  color: #1a1b22;
+}
+
+.about__description {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: justify;
+  line-height: 24px;
+  padding-bottom: 15px;
+  margin: 0;
+  color: #1a1b22;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 768px;
+    width: 100%;
+  }
+
+  .about__image-container {
+    padding: 32px 40px 24px;
+  }
+
+  .about__image {
+    max-width: 272px;
+    height: 272px;
+    margin: 0;
+  }
+
+  .about__text-container {
+    max-width: 420px;
+    width: 100%;
+    padding-right: 40px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    flex-wrap: wrap;
+  }
+
+  .about__title {
+    padding-top: 0px;
+  }
+
+  .about__text-container {
+    padding-right: 10px;
+  }
+}
