@@ -1,14 +1,11 @@
 import "../AboutMe/AboutMe.css";
+import ProfilePic from "../../assets/ProfilePic.jpeg";
 
 function AboutMe() {
   return (
     <section className="about">
       <div className="about__image-container">
-        <img
-          src="../../assets/Profile-Picture"
-          alt="About"
-          className="about__image"
-        />
+        <img src={ProfilePic} alt="About" className="about__image" />
       </div>
       <div className="about__text-container">
         <h2 className="about__title">About the author</h2>
