@@ -1,4 +1,4 @@
-const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+const apiKey = b7753775943941279d75b73a5c75bf53;
 const newsApiBaseUrl =
   process.env.NODE_ENV === "production"
     ? "https://nomoreparties.co/news/v2/everything"
