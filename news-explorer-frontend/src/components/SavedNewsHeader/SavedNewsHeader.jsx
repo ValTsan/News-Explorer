@@ -9,6 +9,7 @@ function SavedNewsHeader({
   handleCardLike,
   handleCardDelete,
   setActiveModal,
+  searchQuery,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -22,7 +23,9 @@ function SavedNewsHeader({
           {currentUser?.name}, you have {savedArticles.length} saved articles
         </p>
 
-        <p className="saved-news-header__keywords">By keywords:</p>
+        <p className="saved-news-header__keywords">
+          By keywords: {searchQuery}
+        </p>
       </div>
       <SavedCardList
         isLoggedIn={isLoggedIn}
@@ -30,6 +33,7 @@ function SavedNewsHeader({
         handleCardLike={handleCardLike}
         handleCardDelete={handleCardDelete}
         setActiveModal={setActiveModal}
+        searchQuery={searchQuery}
       />
     </div>
   );

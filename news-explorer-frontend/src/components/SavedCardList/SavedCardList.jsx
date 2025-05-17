@@ -9,6 +9,7 @@ function SavedCardList({
   handleCardDelete,
   setActiveModal,
   isLoggedIn,
+  searchQuery,
 }) {
   // const handleDeleteClick = () => {
   //   onCardDelete(article); // Call the delete function passed from props
@@ -25,6 +26,7 @@ function SavedCardList({
           handleCardDelete={handleCardDelete}
           savedArticles={savedArticles}
           setActiveModal={setActiveModal}
+          searchQuery={searchQuery}
         />
       ))}
     </div>

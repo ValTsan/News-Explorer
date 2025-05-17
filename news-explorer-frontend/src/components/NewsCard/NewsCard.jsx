@@ -24,6 +24,11 @@ function NewsCard({
     );
 
   const isOnSavedNews = location.pathname === "/saved-news";
+  console.log("Saved article data:", {
+    isOnSavedNews,
+    keyword: article.keyword,
+    pathname: location.pathname,
+  });
 
   // console.log("isLoggedIn:", isLoggedIn);
   // console.log("savedArticles:", savedArticles);
@@ -57,8 +62,11 @@ function NewsCard({
 
   return (
     <div className="news-card">
-      {isOnSavedNews && article.keyword && (
-        <div className="news-card__keyword">{article.keyword}</div>
+      {article.keyword && (
+        <div className="news-card__keyword">
+          {article.keyword.charAt(0).toUpperCase() +
+            article.keyword.slice(1).toLowerCase()}
+        </div>
       )}
       <img
         className="news-card__image"

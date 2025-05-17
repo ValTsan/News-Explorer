@@ -182,17 +182,18 @@ function App() {
   //     .catch(console.error("Error saving article:", error));
   // };
 
-  //    const handleSaveArticle = () => {
-  //   title: article.title,
-  //   description: article.description,
-  //   url: article.url, // 👈 must include this
-  //   urlToImage: article.urlToImage,
-  //   source: article.source.name || article.source || "Unknown",
-  //   publishedAt: article.publishedAt,
-  //   keyword: activeKeyword || article.keyword || "General",
+  // const handleSaveArticle = (article) => {
+  //   const articleToSave = {
+  //     title: article.title,
+  //     description: article.description,
+  //     url: article.url,
+  //     urlToImage: article.urlToImage,
+  //     source: article.source.name || article.source,
+  //     publishedAt: article.publishedAt,
+  //     keyword: article.keyword,
+  //   };
+  //   saveArticle(articleToSave, token);
   // };
-  // saveArticle(articleToSave, token);
-  // }
 
   const handleCardLike = (article) => {
     const token = getItems();
@@ -209,7 +210,7 @@ function App() {
       url: article.url,
       urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
-      keyword: article.keyword || "General",
+      keyword: article.keyword,
     };
 
     // console.log("Attempting to save article:", articleToSave);
@@ -298,12 +299,24 @@ function App() {
 
     try {
       const news = await fetchNews(searchQuery);
+      // console.log("Fetched articles for query:", news);
 
-      // Log the fetched articles for debugging
-      console.log("Fetched articles for query:", news);
+      // Add the search query as keyword to each article
+      const newsWithKeywords = news.map((article) => ({
+        ...article,
+        keyword: searchQuery,
+      }));
+      console.log("Articles with keywords:", newsWithKeywords);
 
-      setArticles(news);
-      if (news.length === 0) {
+      // setArticles(news);
+      // if (news.length === 0) {
+      //   setError("No articles found");
+      //   setArticles([]);
+      //   return;
+      // }
+
+      setArticles(newsWithKeywords);
+      if (newsWithKeywords.length === 0) {
         setError("No articles found");
         setArticles([]);
         return;
@@ -372,6 +385,7 @@ function App() {
                           savedArticles={savedArticles}
                           handleCardDelete={handleCardDelete}
                           setActiveModal={setActiveModal}
+                          searchQuery={searchQuery}
                         />
                         <SavedCardList
                           isLoggedIn={isLoggedIn}
@@ -379,6 +393,7 @@ function App() {
                           handleCardLike={handleCardLike}
                           handleCardDelete={handleCardDelete}
                           setActiveModal={setActiveModal}
+                          searchQuery={searchQuery}
                         />
                       </div>
                     </ProtectedRoute>
