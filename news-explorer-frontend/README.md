@@ -16,3 +16,4 @@ The idea of the project is to make a call to a public news API, which responds w
 
 ## Links
 
+[Final Project Front-End](https://valtsan.github.io/News-Explorer/)
