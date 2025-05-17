@@ -55,6 +55,9 @@ function NewsCard({
 
   return (
     <div className="news-card">
+      {article.keyword && (
+        <div className="news-card__keyword">{article.keyword}</div>
+      )}
       <img
         className="news-card__image"
         src={article?.urlToImage || "default-image.jpg"}

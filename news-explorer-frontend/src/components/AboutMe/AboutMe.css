@@ -21,7 +21,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
-  background-image: url("../../assets/ProfilePic.jpeg");
+  background-image: url("../../../public/ProfilePic.jpeg");
   border-radius: 50%;
 }
 
