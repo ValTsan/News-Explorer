@@ -168,6 +168,7 @@ function App() {
       publishedAt: article.publishedAt,
       keyword: searchQuery,
       _id: article.url,
+      sourceName: article.sourceName,
     };
 
     // console.log("Attempting to save article:", articleToSave);
