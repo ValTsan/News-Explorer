@@ -1,7 +1,13 @@
 .footer {
-  display: flex;
+  /* display: flex;
   width: auto;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white; */
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 20px;
   align-items: center;
   padding: 20px 40px;
   background-color: white;
@@ -11,7 +17,7 @@
   font-family: "Roboto";
   font-size: 14px;
   color: #aaa;
-  margin: 0 0 0 104px;
+
   font-weight: 400;
 }
 
@@ -20,7 +26,8 @@
   gap: 20px;
 }
 
-.footer__link {
+.footer__link-home,
+.footer__link-tripleten {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
@@ -30,7 +37,8 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.footer__link:hover {
+.footer__link-home:hover,
+.footer__link-tripleten:hover {
   cursor: pointer;
   opacity: 0.6;
 }
@@ -45,30 +53,15 @@
   column-gap: 20px;
 }
 
-.footer__github-icon {
-  height: 20px;
-  width: 20px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url("../../assets/github.svg");
-  margin-left: 40px;
-  display: block;
-  border: none;
-  outline: none;
-  z-index: 2;
-}
-
+.footer__github-icon,
 .footer__fb-icon {
   height: 20px;
   width: 20px;
-  background-image: url("../../assets/facebook.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 0 104px 0 0;
   display: block;
   border: none;
   outline: none;
-  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -83,32 +76,34 @@
 
 @media (max-width: 480px) {
   .footer {
-    padding: 20px;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
     grid-template-areas:
       "nav media"
       "text text";
-  }
-
-  .footer__social {
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 16px;
   }
 
   .footer__nav {
     grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .footer__media {
-    gap: 15px;
+    grid-area: media;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
   }
 
   .footer__text {
     grid-area: text;
-    font-size: 15px;
-    color: #aaa;
+    font-size: 16px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 38px;
   }
 }
