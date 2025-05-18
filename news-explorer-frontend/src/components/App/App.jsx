@@ -175,8 +175,21 @@ function App() {
     saveArticle(articleToSave, token)
       .then((savedArticle) => {
         // console.log("API Response:", savedArticle);
-        setSavedArticles((prevArticles) => [...prevArticles, articleToSave]);
-        // console.log("Article saved successfully:", savedArticle);
+        // setSavedArticles((prevArticles) => [...prevArticles, articleToSave]);
+        setSavedArticles((prevArticles) => {
+          console.log("Previous articles:", prevArticles);
+          const isArticleAlreadySaved = prevArticles.some(
+            (saved) => saved.url === articleToSave.url
+          );
+          if (isArticleAlreadySaved) {
+            return prevArticles;
+          }
+          return [...prevArticles, articleToSave];
+          // const savedId = savedArticle._id;
+          // const savedArticle = { ...saveArticle, _id: savedId };
+          // return [...prevArticles, savedArticle];
+        });
+        console.log("Article saved successfully:", savedArticle);
       })
       .catch((error) => {
         console.error("Error saving article:", error);

@@ -15,7 +15,7 @@ function SavedCardList({
     <div className="saved-cards">
       {savedArticles?.map((article) => (
         <NewsCard
-          key={article._id || article.url}
+          key={article.url}
           article={article}
           isLoggedIn={isLoggedIn}
           handleCardLike={handleCardLike}

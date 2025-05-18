@@ -23,7 +23,7 @@ function NewsCard({
     );
 
   const isOnSavedNews = location.pathname === "/saved-news";
-  console.log("Saved article data:", article);
+  // console.log("Saved article data:", article);
 
   // console.log("Saved article data:", {
   //   isOnSavedNews,

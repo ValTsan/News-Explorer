@@ -45,14 +45,14 @@ function SavedNewsHeader({
           By keywords: {getUniqueKeywords()}
         </p>
       </div>
-      <SavedCardList
+      {/* <SavedCardList
         isLoggedIn={isLoggedIn}
         savedArticles={savedArticles}
         handleCardLike={handleCardLike}
         handleCardDelete={handleCardDelete}
         setActiveModal={setActiveModal}
         searchQuery={searchQuery}
-      />
+      /> */}
     </div>
   );
 }
