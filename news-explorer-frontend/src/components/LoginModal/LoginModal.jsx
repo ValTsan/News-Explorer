@@ -11,8 +11,6 @@ function LoginModal({
   setActiveModal,
   handleRegisterModal,
 }) {
-  // console.log("LoginModal rendered, isOpen:", isOpen);
-
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [emailError, setEmailError] = useState("");

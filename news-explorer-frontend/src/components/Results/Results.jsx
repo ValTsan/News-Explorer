@@ -16,10 +16,6 @@ function Results({
   isLoggedIn,
   setActiveModal,
 }) {
-  // const [activeModal, setActiveModal] = useState("login");
-
-  // console.log("Results component received:", { articles, isLoading, error });
-
   if (isLoading) {
     return (
       <div className="results">
@@ -58,7 +54,6 @@ function Results({
       {Array.isArray(articles) && articles.length > 0 && (
         <div className="results__cards">
           {articles.slice(0, visibleArticles).map((article, index) => {
-            // console.log("Rendering article:", article.title || article);
             return (
               <NewsCard
                 key={article._id || article.url}

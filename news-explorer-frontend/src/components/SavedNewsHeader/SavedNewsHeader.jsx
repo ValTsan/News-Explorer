@@ -3,14 +3,7 @@ import SavedCardList from "../SavedCardList/SavedCardList";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext, React } from "react";
 
-function SavedNewsHeader({
-  savedArticles,
-  isLoggedIn,
-  handleCardLike,
-  handleCardDelete,
-  setActiveModal,
-  searchQuery,
-}) {
+function SavedNewsHeader({ savedArticles }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   const getUniqueKeywords = () => {
@@ -45,14 +38,6 @@ function SavedNewsHeader({
           By keywords: {getUniqueKeywords()}
         </p>
       </div>
-      {/* <SavedCardList
-        isLoggedIn={isLoggedIn}
-        savedArticles={savedArticles}
-        handleCardLike={handleCardLike}
-        handleCardDelete={handleCardDelete}
-        setActiveModal={setActiveModal}
-        searchQuery={searchQuery}
-      /> */}
     </div>
   );
 }

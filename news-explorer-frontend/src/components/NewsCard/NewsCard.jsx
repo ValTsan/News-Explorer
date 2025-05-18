@@ -23,44 +23,22 @@ function NewsCard({
     );
 
   const isOnSavedNews = location.pathname === "/saved-news";
-  // console.log("Saved article data:", article);
-
-  // console.log("Saved article data:", {
-  //   isOnSavedNews,
-  //   keyword: article.keyword,
-  //   pathname: location.pathname,
-  // });
-
-  // console.log("isLoggedIn:", isLoggedIn);
-  // console.log("savedArticles:", savedArticles);
-  // console.log("current article url:", article?.url);
-  // console.log("isSaved:", isSaved);
 
   // Handle bookmark button click
   const handleBookmarkClick = () => {
-    // console.log("Bookmark clicked");
-    // console.log("isLoggedIn:", isLoggedIn);
-    // console.log("setActiveModal:", typeof setActiveModal);
-
     if (!isLoggedIn) {
-      // console.log("User not logged in, attempting to open modal");
       setShowSignInText(true);
-      // setTimeout(() => setActiveModal("login"), 0);
+
       setActiveModal("login");
-      // console.log("Called setActiveModal with 'login'");
+
       return;
     }
     if (isSaved) {
-      // console.log("Attempting to delete article");
-      // console.log("handleCardDelete:", handleCardDelete);
       handleCardDelete(article);
     } else {
-      // console.log("Attempting to save article");
       handleCardLike(article);
     }
   };
-
-  // console.log("Article data:", article);
 
   return (
     <div className="news-card">

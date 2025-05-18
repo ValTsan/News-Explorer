@@ -32,9 +32,7 @@ function App() {
 
   const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
-  useEffect(() => {
-    // console.log("Active Modal State:", activeModal);
-  }, [activeModal]);
+  useEffect(() => {}, [activeModal]);
   const [searchQuery, setSearchQuery] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -84,7 +82,6 @@ function App() {
     }
     authorize(values.email, values.password)
       .then((res) => {
-        // console.log(res);
         setToken(res.token);
         if (res.token) {
           checkToken(res.token)
@@ -153,7 +150,6 @@ function App() {
 
   const handleCardLike = (article) => {
     const token = getItems();
-    // console.log("Token from getItems:", token);
     if (!token) {
       console.log("No token found - user might not be logged in");
       return;
@@ -171,11 +167,8 @@ function App() {
       sourceName: article.sourceName,
     };
 
-    // console.log("Attempting to save article:", articleToSave);
     saveArticle(articleToSave, token)
       .then((savedArticle) => {
-        // console.log("API Response:", savedArticle);
-        // setSavedArticles((prevArticles) => [...prevArticles, articleToSave]);
         setSavedArticles((prevArticles) => {
           console.log("Previous articles:", prevArticles);
           const isArticleAlreadySaved = prevArticles.some(
@@ -185,9 +178,6 @@ function App() {
             return prevArticles;
           }
           return [...prevArticles, articleToSave];
-          // const savedId = savedArticle._id;
-          // const savedArticle = { ...saveArticle, _id: savedId };
-          // return [...prevArticles, savedArticle];
         });
         console.log("Article saved successfully:", savedArticle);
       })
@@ -199,10 +189,6 @@ function App() {
   const handleCardDelete = (article) => {
     const token = getItems();
     if (!token) return;
-
-    // console.log("Article being deleted:", article);
-    // console.log("Article url to delete:", article.url);
-    // console.log("All saved articles:", savedArticles);
 
     const savedArticle = savedArticles.find(
       (saved) => saved.url === article.url || saved.link === article.url
@@ -242,14 +228,12 @@ function App() {
 
     try {
       const news = await fetchNews(searchQuery);
-      // console.log("Fetched articles for query:", news);
 
       // Add the search query as keyword to each article
       const newsWithKeywords = news.map((article) => ({
         ...article,
         keyword: searchQuery,
       }));
-      // console.log("Articles with keywords:", newsWithKeywords);
 
       setArticles(newsWithKeywords);
       if (newsWithKeywords.length === 0) {
