@@ -9,9 +9,8 @@ function NewsCard({
   handleCardDelete,
   setActiveModal,
   savedArticles = [],
+  searchQuery,
 }) {
-  console.log("Article data in NewsCard:", article);
-
   const location = useLocation();
   const [showSignInText, setShowSignInText] = useState(false);
 
@@ -27,7 +26,14 @@ function NewsCard({
   console.log("Saved article data:", {
     isOnSavedNews,
     keyword: article.keyword,
+    // keyword: searchQuery,
     pathname: location.pathname,
+  });
+
+  console.log("Article in NewsCard:", {
+    article,
+    keyword: article.keyword,
+    isOnSavedNews,
   });
 
   // console.log("isLoggedIn:", isLoggedIn);

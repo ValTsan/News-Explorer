@@ -19,8 +19,8 @@ export const fetchNews = async (query) => {
     }
 
     const data = await response.json();
-    console.log("Raw article data:", data.articles[0]);
-    console.log("Fetched articles from API:", data.articles);
+    // console.log("Raw article data:", data.articles[0]);
+    // console.log("Fetched articles from API:", data.articles);
 
     // Map through the articles and format them
     const articles = data.articles.map((article) => ({

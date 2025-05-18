@@ -13,6 +13,24 @@ function SavedNewsHeader({
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
+  const getUniqueKeywords = () => {
+    const keywords = savedArticles
+      .map((article) => article.keyword)
+      .filter(Boolean);
+
+    const uniqueKeywords = Array.from(new Set(keywords));
+    if (uniqueKeywords.length <= 3) {
+      return uniqueKeywords.join(", ");
+    }
+
+    const firstTwo = uniqueKeywords.slice(0, 2);
+    const remainingCount = uniqueKeywords.length - 2;
+
+    return `${firstTwo.join(", ")}, and ${remainingCount} other${
+      remainingCount > 1 ? "s" : ""
+    }`;
+  };
+
   return (
     <div className="saved-news-header">
       <div className="saved-news-header__container">
@@ -24,7 +42,7 @@ function SavedNewsHeader({
         </p>
 
         <p className="saved-news-header__keywords">
-          By keywords: {searchQuery}
+          By keywords: {getUniqueKeywords()}
         </p>
       </div>
       <SavedCardList

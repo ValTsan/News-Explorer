@@ -33,7 +33,7 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   useEffect(() => {
-    console.log("Active Modal State:", activeModal);
+    // console.log("Active Modal State:", activeModal);
   }, [activeModal]);
   const [searchQuery, setSearchQuery] = useState("");
   const [savedArticles, setSavedArticles] = useState([]);
@@ -259,9 +259,9 @@ function App() {
     const token = getItems();
     if (!token) return;
 
-    console.log("Article being deleted:", article);
-    console.log("Article url to delete:", article.url);
-    console.log("All saved articles:", savedArticles);
+    // console.log("Article being deleted:", article);
+    // console.log("Article url to delete:", article.url);
+    // console.log("All saved articles:", savedArticles);
 
     const savedArticle = savedArticles.find(
       (saved) => saved.url === article.url || saved.link === article.url
@@ -270,12 +270,15 @@ function App() {
     console.log("Found saved article to delete:", savedArticle);
 
     if (savedArticle) {
-      deleteArticle(savedArticle._id)
+      const articleUrl = savedArticle.url;
+      console.log("Article ID:", articleUrl);
+
+      deleteArticle(articleUrl, token)
         .then(() => {
           setSavedArticles((prevArticles) =>
-            prevArticles.filter((a) => a._id !== savedArticle._id)
+            prevArticles.filter((a) => a._id !== articleUrl)
           );
-          console.log("Article deleted successfully:", savedArticle._id);
+          console.log("Article deleted successfully:", articleUrl);
         })
         .catch((error) => {
           console.error("Error deleting article:", error);
@@ -306,7 +309,7 @@ function App() {
         ...article,
         keyword: searchQuery,
       }));
-      console.log("Articles with keywords:", newsWithKeywords);
+      // console.log("Articles with keywords:", newsWithKeywords);
 
       // setArticles(news);
       // if (news.length === 0) {
