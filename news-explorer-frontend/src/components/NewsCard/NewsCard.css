@@ -93,45 +93,22 @@
   transition: all 0.3s ease;
 }
 
-/* .news-card__bookmark.saved:hover {
-  background-image: url("../../assets/save-icon-marked.svg");
-} */
-
-/* Not saved hover state */
-/* .news-card__bookmark:not(.saved):hover {
-  background-image: url("../../assets/save-icon-hover.svg");
-} */
+.news-card__source {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  color: #b6bcbf;
+}
 
 /* Saved state */
 .news-card__bookmark.saved {
   background-image: url("../../assets/save-icon-marked.svg");
 }
 
-/* Saved hover state */
-/* .news-card__bookmark.saved:hover {
-  background-color: #2f71e5;
-  opacity: 0.8;
-}
-
-/* Disabled state */
-/* .news-card__bookmark:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-} */
-
-/* .news-card__bookmark:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-} */
-
-/* .news-card__bookmark:hover {
-  background-image: url("../../assets/save-icon-hover.svg");
-} */
-
-/* .news-card__bookmark.saved:hover {
-  cursor: pointer;
-  background-image: url("../../assets/save-icon-marked.svgg");
-} */
 .news-card__signin-text {
   width: 182px;
   height: 40px;

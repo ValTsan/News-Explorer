@@ -59,6 +59,8 @@ function NewsCard({
     }
   };
 
+  // console.log("Article data:", article);
+
   return (
     <div className="news-card">
       {article.keyword && (
@@ -108,7 +110,7 @@ function NewsCard({
           {!isLoggedIn && !isOnSavedNews && showSignInText && (
             <span className="news-card__signin-text">Sign in to bookmark</span>
           )}
-          {/* <span className="news-card__source">{source}</span> */}
+          <span className="news-card__source">{article.sourceName}</span>
         </div>
       </div>
     </div>

@@ -11,10 +11,6 @@ function SavedCardList({
   isLoggedIn,
   searchQuery,
 }) {
-  // const handleDeleteClick = () => {
-  //   onCardDelete(article); // Call the delete function passed from props
-  // };
-
   return (
     <div className="saved-cards">
       {savedArticles?.map((article) => (

@@ -151,50 +151,6 @@ function App() {
     };
   }, [activeModal]);
 
-  // const handleCardLike = (article) => {
-  //   const token = getItems();
-  //   console.log(token);
-  //   if (!token) return;
-  //   console.log(article);
-
-  //   const articleId = saveArticle(article);
-  //   article.articleId = articleId;
-  //   console.log(article.articleId);
-
-  //   // Article ID logged for confirmation
-  //   console.log("Article ID:", articleId);
-
-  //   //Split Search query into individuals keywords
-  //   article.keywords = searchQuery.split("");
-
-  //   // Article with attached keywords logged for confirmation
-  //   console.log(
-  //     "Article with attached keywords:",
-  //     article.keywords.slice(0, 2)
-  //   );
-
-  //   // Pass the articleId and article object to the API
-  //   savedArticles(article, token)
-  //     .then((likedArticle) => {
-  //       setSavedArticles([...savedArticles, likedArticle]);
-  //       console.log("Article saved successfully:", likedArticle);
-  //     })
-  //     .catch(console.error("Error saving article:", error));
-  // };
-
-  // const handleSaveArticle = (article) => {
-  //   const articleToSave = {
-  //     title: article.title,
-  //     description: article.description,
-  //     url: article.url,
-  //     urlToImage: article.urlToImage,
-  //     source: article.source.name || article.source,
-  //     publishedAt: article.publishedAt,
-  //     keyword: article.keyword,
-  //   };
-  //   saveArticle(articleToSave, token);
-  // };
-
   const handleCardLike = (article) => {
     const token = getItems();
     // console.log("Token from getItems:", token);
@@ -225,36 +181,6 @@ function App() {
         console.error("Error saving article:", error);
       });
   };
-
-  // const handleCardDelete = (article) => {
-  //   const token = getToken();
-  //   if (!token) return;
-
-  //   const savedArticle = savedArticles.find(
-  //     (saved) => saved.url === article.url
-  //   );
-
-  //   if (savedArticle) {
-  //     const articleId = savedArticle._id;
-  //     console.log("Article ID:", articleId);
-  //     // Article ID logged for confirmation
-  //     Auth.deleteArticle(articleId, token)
-  //       .then(() => {
-  //         console.log("Article deleted successfully", articleId);
-  //         // Remove the article from the savedArticles state
-
-  //         setSavedArticles((prevArticles) =>
-  //           prevArticles.filter((a) => a._id !== articleId)
-  //         );
-  //         console.log("Article deleted successfully");
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error deleting article:", error);
-  //       });
-  //   } else {
-  //     console.log("Article not found in saved articles for deletion");
-  //   }
-  // };
 
   const handleCardDelete = (article) => {
     const token = getItems();
@@ -289,7 +215,6 @@ function App() {
     }
   };
 
-  // HANDLE SEARCH LOGIC
   const handleSearch = async (searchQuery) => {
     if (!searchQuery.trim()) {
       setError("Please enter a search query");
@@ -311,13 +236,6 @@ function App() {
         keyword: searchQuery,
       }));
       // console.log("Articles with keywords:", newsWithKeywords);
-
-      // setArticles(news);
-      // if (news.length === 0) {
-      //   setError("No articles found");
-      //   setArticles([]);
-      //   return;
-      // }
 
       setArticles(newsWithKeywords);
       if (newsWithKeywords.length === 0) {
