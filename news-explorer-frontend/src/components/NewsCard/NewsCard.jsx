@@ -23,18 +23,12 @@ function NewsCard({
     );
 
   const isOnSavedNews = location.pathname === "/saved-news";
-  console.log("Saved article data:", {
-    isOnSavedNews,
-    keyword: article.keyword,
-    // keyword: searchQuery,
-    pathname: location.pathname,
-  });
 
-  console.log("Article in NewsCard:", {
-    article,
-    keyword: article.keyword,
-    isOnSavedNews,
-  });
+  // console.log("Saved article data:", {
+  //   isOnSavedNews,
+  //   keyword: article.keyword,
+  //   pathname: location.pathname,
+  // });
 
   // console.log("isLoggedIn:", isLoggedIn);
   // console.log("savedArticles:", savedArticles);
@@ -43,17 +37,16 @@ function NewsCard({
 
   // Handle bookmark button click
   const handleBookmarkClick = () => {
-    console.log("Bookmark clicked");
-    console.log("isLoggedIn:", isLoggedIn);
-
+    // console.log("Bookmark clicked");
+    // console.log("isLoggedIn:", isLoggedIn);
     // console.log("setActiveModal:", typeof setActiveModal);
 
     if (!isLoggedIn) {
-      console.log("User not logged in, attempting to open modal");
+      // console.log("User not logged in, attempting to open modal");
       setShowSignInText(true);
       // setTimeout(() => setActiveModal("login"), 0);
       setActiveModal("login");
-      console.log("Called setActiveModal with 'login'");
+      // console.log("Called setActiveModal with 'login'");
       return;
     }
     if (isSaved) {

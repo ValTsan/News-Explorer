@@ -84,7 +84,7 @@ function App() {
     }
     authorize(values.email, values.password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setToken(res.token);
         if (res.token) {
           checkToken(res.token)
@@ -210,14 +210,15 @@ function App() {
       url: article.url,
       urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
-      keyword: article.keyword,
+      keyword: searchQuery,
+      _id: article.url,
     };
 
     // console.log("Attempting to save article:", articleToSave);
     saveArticle(articleToSave, token)
       .then((savedArticle) => {
         // console.log("API Response:", savedArticle);
-        setSavedArticles((prevArticles) => [...prevArticles, savedArticle]);
+        setSavedArticles((prevArticles) => [...prevArticles, articleToSave]);
         // console.log("Article saved successfully:", savedArticle);
       })
       .catch((error) => {
