@@ -1,6 +1,7 @@
 .modal__inputs {
   border: none;
   background-color: #fff;
+  padding: 0;
 }
 
 .modal__login {
@@ -33,7 +34,7 @@
 }
 
 .modal__submit {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 400;
   background-color: #e6e8eb;

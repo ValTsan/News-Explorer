@@ -48,7 +48,7 @@
 }
 
 .modal__title {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 24px;
   margin: 0;
   margin-left: 16px;
@@ -88,7 +88,8 @@
   padding: 20px 115px;
   border: 1px;
   border-radius: 50px;
-  font-family: "roboto-500";
+  font-family: "Roboto";
+  font-weight: 500;
   font-size: 18px;
   color: #ffffff;
   white-space: nowrap;
@@ -111,7 +112,8 @@
   background: none;
   cursor: pointer;
   color: #2f71e5;
-  font-family: "inter-400-regular";
+  font-family: "Inter";
+  font-weight: 400;
   font-size: 14px;
   opacity: 100%;
   transition: 0.25s ease-in-out;
@@ -128,7 +130,8 @@
 }
 
 .modal__button-text {
-  font-family: "inter-400-regular";
+  font-family: "Inter";
+  font-weight: 400;
   font-size: 14px;
 }
 .modal__button-disabled {

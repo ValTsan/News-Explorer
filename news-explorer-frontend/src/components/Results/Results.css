@@ -24,7 +24,7 @@
 .results__page-title {
   margin: 80px auto 64px 104px;
   font-size: 40px;
-  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-family: "Roboto-slab";
   font-weight: 400;
   line-height: 46px;
   text-align: left;
@@ -45,7 +45,7 @@
 }
 
 .results__preloader-text {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
@@ -90,14 +90,14 @@
 }
 
 .results__not-found-title {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 26px;
   color: black;
 }
 
 .results__not-found-description {
   width: 300px;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   color: gray;
   padding-bottom: 80px;
@@ -110,7 +110,7 @@
   background-color: #ffffff;
   border: none;
   border-radius: 40px;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: 500;
   color: black;
