@@ -167,3 +167,12 @@
     font-size: 16px;
   }
 }
+
+@media (max-width: 320px) {
+  .news-card {
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+}

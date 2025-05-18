@@ -146,3 +146,12 @@
     margin-bottom: 24px;
   }
 }
+
+@media (max-width: 320px) {
+  .results__cards {
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+}
