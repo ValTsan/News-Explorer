@@ -68,6 +68,11 @@
   background-color: transparent;
 }
 
+.header__button-signin:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 /* Signed in css for main 1440px screen */
 .header__button-saved {
   background-color: transparent;
@@ -104,6 +109,11 @@
   line-height: 24px;
 }
 
+.header__button-logout:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 /* Signed in css for main 1440px screen /saved-news */
 .header__logo.header__logo--black {
   color: #000;
@@ -124,6 +134,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.header__button-home_active:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .header__button-saved_active {
   background-color: transparent;
   color: black;
@@ -136,6 +151,11 @@
   border-bottom: 2px solid black;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.header__button-saved_active:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .header__button-logout_active {
@@ -160,7 +180,7 @@
   line-height: 24px;
 }
 
-.header__button-logout:hover {
+.header__button-logout_active:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -202,10 +222,6 @@
   width: 100%;
   text-align: left;
   transition: color 0.3s ease-in-out;
-}
-
-.header__mobile-dropdown-item:hover {
-  color: gray;
 }
 
 .header__mobile-dropdown-signin_button {
