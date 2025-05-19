@@ -21,11 +21,11 @@ function Header({
         isSavedNews ? "header--saved-news" : ""
       }`}
     >
-      <div
+      <h1
         className={`header__logo ${isSavedNews ? "header__logo--black" : ""}`}
       >
         NewsExplorer
-      </div>
+      </h1>
 
       <button
         className={`header__menu-icon ${

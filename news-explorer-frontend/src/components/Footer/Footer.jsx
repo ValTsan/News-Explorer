@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__text">© 2025 Supersite, Powered by News API</p>
-      {/* <div className="footer__social"> */}
+
       <nav className="footer__nav">
         <a href="/" className="footer__link-home">
           Home
@@ -31,7 +31,6 @@ function Footer() {
         >
           <img className="footer__fb-icon" alt="Facebook" src={facebookLink} />
         </a>
-        {/* </div> */}
       </div>
     </footer>
   );
