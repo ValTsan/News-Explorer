@@ -22,12 +22,12 @@
 
 @media (max-width: 768px) {
   .circle-preloader {
-    top: 400px;
+    top: 550px;
   }
 }
 
 @media (max-width: 480px) {
   .circle-preloader {
-    top: 450px;
+    top: 650px;
   }
 }

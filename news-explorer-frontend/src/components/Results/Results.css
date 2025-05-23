@@ -37,9 +37,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 282px;
+  min-height: 282px;
   width: 100%;
-  padding: 20px;
+  padding: 40px 20px 80px;
+  margin-bottom: 80px;
   background-color: #f5f6f7;
   box-sizing: border-box;
 }
@@ -140,6 +141,10 @@
     margin-top: 32px;
     margin-bottom: 40px;
   }
+
+  .results__preloader-text {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -158,6 +163,9 @@
   .result-show-more {
     margin-top: 16px;
     margin-bottom: 24px;
+  }
+  .results__preloader-text {
+    margin-top: 0;
   }
 }
 

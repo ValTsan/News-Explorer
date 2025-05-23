@@ -20,7 +20,6 @@ function Results({
     return (
       <div className="results">
         <div className="results__container">
-          <div className="results__page-title">Search Results</div>
           <div className="results__preloader">
             <Preloader />
             <div className="results__preloader-text">Searching for news...</div>
