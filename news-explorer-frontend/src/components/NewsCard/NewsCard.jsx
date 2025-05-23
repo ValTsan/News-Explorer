@@ -53,6 +53,7 @@ function NewsCard({
         src={article?.urlToImage || "default-image.jpg"}
         alt={article?.title || "News Image"}
       />
+
       <p className="news-card__date">
         Date:{""}
         {article?.publishedAt
@@ -89,9 +90,9 @@ function NewsCard({
           {!isLoggedIn && !isOnSavedNews && showSignInText && (
             <span className="news-card__signin-text">Sign in to bookmark</span>
           )}
-          <span className="news-card__source">{article.sourceName}</span>
         </div>
       </div>
+      <span className="news-card__source">{article.sourceName}</span>
     </div>
   );
 }
