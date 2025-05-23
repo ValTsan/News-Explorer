@@ -301,6 +301,7 @@
   .header.menu-open .header__menu-icon.header__menu-icon--black {
     color: #fff;
     display: flex;
+    background: none;
   }
 
   .header__mobile-dropdown-item {
