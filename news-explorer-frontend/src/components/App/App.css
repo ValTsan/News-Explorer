@@ -6,10 +6,10 @@
 .page__content {
   display: flex;
   flex-direction: column;
-  background-image: url("../../assets/headear-background.svg");
+  /* background-image: url("../../assets/headear-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;

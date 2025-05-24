@@ -181,8 +181,7 @@
 
 @media (max-width: 480px) {
   .news-card {
-    width: 100%;
-    max-width: 480px;
+    max-width: 100%;
     height: 440px;
   }
 
@@ -205,10 +204,4 @@
   .news-card__content {
     padding: 0 15px 0;
   }
-}
-
-@media (max-width: 320px) {
-  /* .news-card__source {
-    padding: 8px 0 0;
-  } */
 }
