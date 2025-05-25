@@ -34,7 +34,7 @@
 }
 
 .modal__submit {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   background-color: #e6e8eb;

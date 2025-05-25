@@ -96,14 +96,15 @@ function Header({
       </div>
 
       {/* Hero section */}
-      <section className="header__hero">
-        <h1 className="header__title">What's going on in the world?</h1>
-        <p className="header__subtitle">
-          Find the news on any topic and save them in your personal account.
-        </p>
-        <SearchForms handleSearch={handleSearch} />
-      </section>
-
+      {!isSavedNews && (
+        <section className="header__hero">
+          <h1 className="header__title">What's going on in the world?</h1>
+          <p className="header__subtitle">
+            Find the news on any topic and save them in your personal account.
+          </p>
+          <SearchForms handleSearch={handleSearch} />
+        </section>
+      )}
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <nav className="header__mobile-dropdown">

@@ -1,12 +1,10 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   position: relative;
   background-color: #fff;
   max-width: 400px;
   width: 100%;
-  /* height: 576px; */
   min-height: 100%;
   border-radius: 20px;
   overflow: hidden;
@@ -21,15 +19,13 @@
 }
 
 .news-card__content {
-  /* display: flex;
-  flex-direction: column; */
   flex-grow: 1;
   padding: 12px 20px 40px;
   margin: 0;
 }
 
 .news-card__title {
-  font-family: "Roboto-slab";
+  font-family: "Roboto-slab", Georgia, serif;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;
@@ -42,7 +38,7 @@
 }
 
 .news-card__description {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -58,7 +54,7 @@
   width: 110px;
   height: 40px;
   position: absolute;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
   top: 24px;
@@ -71,7 +67,7 @@
 }
 
 .news-card__date {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
@@ -98,22 +94,18 @@
   transition: all 0.3s ease;
 }
 
-/* .news-card__actions {
-  margin-top: auto;
-  padding-bottom: 12px;
-} */
+.news-card__bookmark:hover {
+  background-image: url("../../assets/save-icon-hover.svg");
+}
 
 .news-card__source {
-  font-family: "Roboto-slab";
+  font-family: "Roboto-slab", Georgia, serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   text-align: left;
   display: block;
   margin: auto 24px 24px;
-  /* margin: 0;
-  margin-top: auto;
-  padding: 18px 0 0; */
   color: #b6bcbf;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -128,7 +120,7 @@
   width: 182px;
   height: 40px;
   position: absolute;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   top: 24px;
@@ -141,7 +133,11 @@
 }
 
 .news-card__delete-icon {
-  background-image: url("../../assets/trash-hover.svg");
+  background-image: url("../../assets/card-delete.svg");
+}
+
+.news-card__delete-icon:hover {
+  background-image: url("../../assets/card-delete-marked.svg");
 }
 
 @media (max-width: 768px) {
@@ -181,7 +177,7 @@
 
 @media (max-width: 480px) {
   .news-card {
-    max-width: 100%;
+    width: 100%;
     height: 440px;
   }
 

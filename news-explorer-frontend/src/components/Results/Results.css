@@ -24,7 +24,7 @@
 .results__page-title {
   margin: 80px auto 64px 104px;
   font-size: 40px;
-  font-family: "Roboto-slab";
+  font-family: "Roboto-slab", Georgia, serif;
   font-weight: 400;
   line-height: 46px;
   text-align: left;
@@ -46,7 +46,7 @@
 }
 
 .results__preloader-text {
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
@@ -91,7 +91,7 @@
 }
 
 .results__not-found-title {
-  font-family: "Roboto-slab";
+  font-family: "Roboto-slab", Georgia, serif;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;
@@ -100,7 +100,7 @@
 
 .results__not-found-description {
   width: 300px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   color: gray;
   padding-bottom: 80px;
@@ -110,21 +110,25 @@
 .result-show-more {
   width: 288px;
   height: 64px;
+  margin-top: 60px;
+  margin-bottom: 80px;
   background-color: #ffffff;
   border: none;
   border-radius: 40px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: black;
-  transition: opacity 0.5s ease-in-out;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  transition: background-color 0.3s ease;
 }
 
 .result-show-more:hover {
-  opacity: 0.6;
+  background-color: #e8e8e8;
   cursor: pointer;
+}
+
+.result-show-more:active {
+  background-color: #e8e8e8;
 }
 
 @media (max-width: 768px) {

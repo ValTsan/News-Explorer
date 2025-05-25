@@ -266,6 +266,7 @@ function App() {
                 handleLogin={handleLogin}
                 isLoggedIn={isLoggedIn}
                 handleLogout={handleLogout}
+                handleSearch={handleSearch}
               />
               <Routes>
                 <Route
@@ -278,7 +279,6 @@ function App() {
                         isLoggedIn={isLoggedIn}
                         handleLogout={handleLogout}
                         isLoading={isLoading}
-                        handleSearch={handleSearch}
                         isSubmitted={isSubmitted}
                         articles={articles}
                         error={error}
