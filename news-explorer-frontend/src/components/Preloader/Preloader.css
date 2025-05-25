@@ -6,7 +6,7 @@
   border-bottom-color: #888;
   border-radius: 50%;
   position: absolute;
-  top: 820px;
+  top: 400px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -22,18 +22,18 @@
 
 @media (max-width: 768px) {
   .circle-preloader {
-    top: 760px;
+    top: 350px;
   }
 }
 
 @media (max-width: 480px) {
   .circle-preloader {
-    top: 980px;
+    top: 550px;
   }
 }
 
 @media (max-width: 320px) {
   .circle-preloader {
-    top: 1050px;
+    top: 660px;
   }
 }
