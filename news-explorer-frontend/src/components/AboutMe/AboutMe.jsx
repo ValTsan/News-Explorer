@@ -10,10 +10,9 @@ function AboutMe() {
       <div className="about__text-container">
         <h2 className="about__title">About the author</h2>
         <p className="about__description">
-          Welcome to the News Explorer Application, created by Valerie Tsan as
-          part of the TripleTen Software Engineering curriculum! This app was
-          created to help you explore and stay current on topics that interest
-          you.
+          Welcome to the News Explorer Application, created by Valerie Tsan.
+          This app was created to help you explore and stay current on topics
+          that interest you.
         </p>
         <p className="about__description">
           Search for articles, save them to your profile, and build a
